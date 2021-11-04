@@ -1,5 +1,59 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "../Shared/_LoginLayout.cshtml";
+    ViewData["Headline"] = "Opret profil";
 }
+
+
+<form action="/" method="post">
+    <label>Navn</label>
+    <input type="text" name="name" value="" />
+    <label>Mail</label>
+    <input type="email" name="email" value="" />
+    <label>Telefon nr.</label>
+    <input type="tel" name="tel" value="" />
+    <label>Bopæl</label>
+    <input type="text" name="residence" value="" />
+    <label>Lokation</label>
+    <select>
+        <option value="value">Danmark</option>
+        <option value="value">Norge</option>
+        <option value="value">Sverige</option>
+    </select>
+
+    <label>Type</label>
+    <select>
+        <option value="value">X</option>
+        <option value="value">X</option>
+        <option value="value">X</option>
+    </select>
+
+    <label>Kørekort type</label>
+    <select>
+        <option value="value">1</option>
+        <option value="value">2</option>
+        <option value="value">3</option>
+    </select>
+
+    <label>Udløbsdato</label>
+    <input type="date" name="date" value="" />
+
+
+    <label>Førekort</label>
+    <p>Slå til, hvis du har et førekort. Indtast herefter udløbsdatoen for Førekortet</p>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    <label>EU kvalifikationsbevis</label>
+    <p>Slå til, hvis du har en EU kvalikationsbevis. Indtast herefter udløbsdatoen for EU godkendelsen</p>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+
+    <label>Vedhæft billede</label>
+    <p>Vedhæft billede af kørekort og EU kvalikationsbevis.</p>
+    <input type="file" name="image" value="" />
+
+    <button class="bigButton">Anmod om registrering</button>
+</form>
