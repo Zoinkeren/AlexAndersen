@@ -93,3 +93,5 @@ h4 {
 
 .showMore {
     display: inline-block;
+    text-align: right;
+}
