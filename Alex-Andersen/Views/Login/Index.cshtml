@@ -1,5 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "../Shared/_LoginLayout.cshtml";
+    ViewData["Headline"] = "Login";
 }
+
+<img src="" alt="Alternate Text" />
+
+<form action="/" method="post">
+    <label>Brugernavn</label>
+    <input type="text" name="name" value="" />
+    <label>Adgangskode</label>
+    <input type="password" name="password" value="" />
+
+    <input class="bigButton" type="submit" name="submit" value="Log ind" />
+</form>
+
+<a href="#">Ny bruger</a>
+<button>Hjælp</button>
