@@ -27,11 +27,13 @@ body {
 }
 
 
-/*navigation(partial)*/ 
+/*navigation(partial)
+    nav knapperne skal fylde lige meget!!!
+*/
 
-nav{
+nav {
     width: 100%;
-    border-top: solid lightgrey;
+    border-top: solid #005140 0.5px;
     height: auto;
     position: fixed;
     bottom: 0;
@@ -58,16 +60,16 @@ li{
     flex-direction:column;
     justify-content: space-around;
     text-decoration: none;
+    padding: 5px;
+    color: black;   
 }
 
 .NavIcon{
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 10px;
-}
-
-
-
+    fill: var(--brightGreen);
+    }
 
 .roundedBox {
     border-radius: 10px;
