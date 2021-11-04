@@ -82,3 +82,14 @@ li{
     width: 100%;
     padding: 4%;
 }
+
+/*////////////////////////
+    sven
+////////////////////////*/
+
+h4 {
+    display: inline-block;
+}
+
+.showMore {
+    display: inline-block;
