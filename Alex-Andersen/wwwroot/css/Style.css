@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #eee;
+    background-color: white;
 }
 
 :root {
@@ -73,7 +73,8 @@ li{
     border-radius: 10px;
     padding: 2%;
     margin: 5% 0;
-    background-color: lightgrey;
+    background-color: white;
+    box-shadow: 0px 1px 10px #cecece;
 }
 
 .bigButton {
@@ -81,4 +82,49 @@ li{
     border-radius: 10px;
     width: 100%;
     padding: 4%;
+}
+
+/* Availability */
+
+.calendar-tip {
+    border-top:1px solid grey;
+    text-align:center;
+    padding:20px 0;
+}
+
+.calendar-tip p {
+    display:inline-block;
+    margin:0 10px;
+}
+
+.calendar-tip p::before {
+    content:"";
+    width:10px;
+    height:10px;
+    display:inline-block;
+    margin:0 5px;
+}
+
+.calendar-tip p.green::before {
+    background-color: var(--brightGreen);
+}
+
+.calendar-tip p.red::before {
+    background-color: var(--mainRed);
+}
+
+.calendar {
+    margin:10% 0; 
+}
+
+.calendar h3 {
+    text-align:center;
+}
+
+.calendar .calendar-body {
+    margin:15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+    padding: 10px;
+    background-color: white;
 }
