@@ -209,3 +209,51 @@ input:checked + .slider:before {
     float:right; /*fix next time*/
     margin-top:-10px;
 }
+
+/*////////////////////////
+    sven
+////////////////////////*/
+
+h4 {
+    display: inline-block;
+}
+
+.position {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
+}
+
+.showMore {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+
+.date {
+    grid-column: 1/3;
+    display: block;
+    border: solid 1px var(--mainGreen);
+    border-radius: 10px;
+    padding: 2%;
+    text-align: center;
+}
+
+    .date h6 {
+        font-size: 2rem;
+    }
+
+    .date p {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+.tripInfo {
+    grid-column: 3/10;
+    padding: 2%;
+    text-align: left;
+}
+
+    .tripInfo ul li {
+        font-size: 0.8rem;
+        font-weight: 700;
