@@ -33,7 +33,7 @@ body {
     nav knapperne skal fylde lige meget!!!
 */
 
-nav {
+.NavigationMenu {
     width: 100%;
     border-top: solid #005140 0.5px;
     height: auto;
@@ -43,14 +43,14 @@ nav {
     align-items: center;
 }
 
-ul{
+.NavigationMenuList{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-li{
+.NavigationMenuListItem {
     justify-content: space-around;
     text-align: center;
     list-style: none;
