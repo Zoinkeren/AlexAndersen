@@ -3,3 +3,40 @@
 *@
 @{
 }
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                firstDay: 1,
+                editable: true,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true, // allow "more" link when too many events
+                events: [
+                    {
+                        start: '2021-11-10',
+                        end: '2021-11-15',
+                        display: 'background',
+                        classNames: ['available']
+                    },
+                    {
+                        start: '2021-11-19',
+                        end: '2021-11-21',
+                        display: 'background',
+                        classNames: ['unavailable']
+                    }
+                ],
+            });
+            calendar.render();
+        });
+</script>
+<div id='calendar'></div>
+<div class="calendar-tooltip">
+    <div class="available">
+        Available
+    </div>
+    <div class="unavailable">
+        Unavailable
+    </div>
+</div>

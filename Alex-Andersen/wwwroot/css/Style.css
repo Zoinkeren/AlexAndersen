@@ -26,6 +26,7 @@ body {
     width: 100vw;
     height: auto;
     padding: 10%;
+    box-sizing: border-box;
 }
 
 
@@ -88,50 +89,60 @@ body {
     padding: 4%;
 }
 
-/* Availability */
+/*/////////////////////////////
+    AVAILABILITY / CALENDAR
+/////////////////////////////*/
 
-.calendar-tip {
-    border-top:1px solid grey;
-    text-align:center;
-    padding:20px 0;
+
+#calendar {
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-.calendar-tip p {
-    display:inline-block;
-    margin:0 10px;
+#calendar .fc-toolbar {
+    flex-wrap:wrap;
 }
 
-.calendar-tip p::before {
+#calendar .available {
+    background-color:var(--mainGreen);
+}
+
+#calendar .unavailable {
+    background-color:var(--mainRed);
+}
+
+.calendar-tooltip {
+    display:flex;
+    margin:0 auto;
+    justify-content:space-around;
+}
+
+.calendar-tooltip {
+    border-top:1px solid var(--lightGrey);
+    margin: 10% 0;
+    padding: 5% 0;
+}
+
+.calendar-tooltip .available::before {
     content:"";
-    width:10px;
-    height:10px;
     display:inline-block;
-    margin:0 5px;
+    height:10px;
+    width:10px;
+    background-color:var(--mainGreen);
 }
 
-.calendar-tip p.green::before {
-    background-color: var(--brightGreen);
+.calendar-tooltip .unavailable::before {
+    content:"";
+    display:inline-block;
+    height:10px;
+    width:10px;
+    background-color:var(--mainRed);
 }
 
-.calendar-tip p.red::before {
-    background-color: var(--mainRed);
-}
 
-.calendar {
-    margin:10% 0; 
-}
 
-.calendar h3 {
-    text-align:center;
-}
-
-.calendar .calendar-body {
-    margin:15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #ccc;
-    padding: 10px;
-    background-color: white;
-}
 /*/////////////////////////////
     SIGN IN & SIGN UP
 /////////////////////////////*/
