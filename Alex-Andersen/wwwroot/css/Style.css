@@ -26,11 +26,6 @@ body {
     padding: 10%;
 }
 
-
-/*navigation(partial)
-    nav knapperne skal fylde lige meget!!!
-*/
-
 nav {
     width: 100%;
     border-top: solid #005140 0.5px;
@@ -52,16 +47,17 @@ li{
     justify-content: space-around;
     text-align: center;
     list-style: none;
+    width: 100%;
 }
 
-.NavButton{
+.NavButton {
     align-items: center;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-around;
     text-decoration: none;
     padding: 5px;
-    color: black;   
+    color: #77A198;
 }
 
 .NavIcon{
