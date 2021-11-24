@@ -93,12 +93,37 @@ body {
     AVAILABILITY / CALENDAR
 /////////////////////////////*/
 
+#calendar-wrapper {
+    position: absolute;
+}
+
+#calendar-wrapper #popup {
+    position:fixed;
+    background-color:white;
+    top:20%;
+    transform: translateY(-50%);
+    border:1px solid red;
+    left:0;
+    right:0;
+    margin:10%;
+    z-index:10;
+}
+
+#calendar-wrapper #popup #dateSelected { /*Text*/
+    clear:both;
+    padding:5%;
+}
+
+#calendar-wrapper #popup #exit {
+    float:right;
+    padding:10px;
+}
+
 
 #calendar {
     min-width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    box-sizing: border-box;
 }
 
 #calendar .fc-toolbar {
@@ -114,14 +139,16 @@ body {
 }
 
 .calendar-tooltip {
-    display:flex;
-    margin:0 auto;
-    justify-content:space-around;
+    position: relative;
+    bottom:0;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
 }
 
 .calendar-tooltip {
     border-top:1px solid var(--lightGrey);
-    margin: 10% 0;
+    margin: 0;
     padding: 5% 0;
 }
 

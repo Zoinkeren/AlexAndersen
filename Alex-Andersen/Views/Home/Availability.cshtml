@@ -6,13 +6,28 @@
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
+            var popupText = document.getElementById("dateSelected");
+            var popup = document.getElementById("popup");
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 firstDay: 1,
                 editable: true,
                 selectable: true,
                 businessHours: true,
+                locale: 'DK',
+                longPressDelay: 1,
                 dayMaxEvents: true, // allow "more" link when too many events
+
+
+                select: function (info) {
+                    popupText.innerHTML = "Du har valgt: " + info.startStr + " til " + info.endStr;
+                    popup.style.display = "block";
+                },
+
+                /*dateClick: function (info) {
+                    popupText.innerHTML = "Du har valgt: " + info.dateStr;
+                },*/
+
                 events: [
                     {
                         start: '2021-11-10',
@@ -28,15 +43,24 @@
                     }
                 ],
             });
+            document.getElementById("exit").addEventListener("click", function () {
+                popup.style.display = "none";
+            });
             calendar.render();
         });
 </script>
-<div id='calendar'></div>
-<div class="calendar-tooltip">
-    <div class="available">
-        Available
+<div id="calendar-wrapper">
+    <div id="popup">
+        <div id="exit">X</div>
+        <span id="dateSelected">Du har valgt: </span>
     </div>
-    <div class="unavailable">
-        Unavailable
+    <div id='calendar'></div>
+    <div class="calendar-tooltip">
+        <div class="available">
+            Available
+        </div>
+        <div class="unavailable">
+            Unavailable
+        </div>
     </div>
 </div>
