@@ -6,12 +6,11 @@
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
-            var popupText = document.getElementById("dateSelected");
+            //var popupText = document.getElementById("dateSelected");
             var popup = document.getElementById("popup");
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 firstDay: 1,
-                editable: true,
                 selectable: true,
                 businessHours: true,
                 locale: 'DK',
@@ -20,7 +19,8 @@
 
 
                 select: function (info) {
-                    popupText.innerHTML = "Du har valgt: " + info.startStr + " til " + info.endStr;
+                    document.getElementById("date-start").setAttribute("value", info.startStr);
+                    document.getElementById("date-end").setAttribute("value", info.endStr);
                     popup.style.display = "block";
                 },
 
@@ -46,20 +46,32 @@
             document.getElementById("cancel").addEventListener("click", function () {
                 popup.style.display = "none";
             });
+            document.getElementById("save").addEventListener("click", function () {
+                popup.style.display = "none";
+            });
             calendar.render();
         });
 </script>
 <div id="calendar-wrapper">
     <div id="popup" class="roundedBox">
-        <div id="dateSelected"></div>
-         
-        <label for="date-start">Fra</label><input type="date" id="date-start" name="date-start"/><br />
-        <label for="date-end">Til</label><input type="date" id="date-end" name="date-end"/>
+        <h3>Sæt rådighed</h3>
+
         <div class="radio-group">
-            <input type="radio" name="availability" />
-            <input type="radio" name="availability" />
+            <input type="radio" id="pick-available" name="availability" /><label for="pick-available">Available</label>
+            <br />
+            <input type="radio" id="pick-unavailable" name="availability" /><label for="pick-unavailable">Unavailable</label>
         </div>
-        <button id="cancel">Cancel</button><button>Tilføj</button>
+
+        <label for="date-start">Fra</label>
+        <input type="date" id="date-start" name="date-start" /><br />
+
+        <label for="date-end">Til</label>
+        <input type="date" id="date-end" name="date-end" />
+        <div class="button-group">
+            <button id="cancel">Annuller</button>
+            <button id="save">Tilføj</button>
+        </div>
+
     </div>
     <div id='calendar'></div>
     <div class="calendar-tooltip">
