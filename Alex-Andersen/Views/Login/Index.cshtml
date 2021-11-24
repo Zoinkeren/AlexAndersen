@@ -15,3 +15,25 @@
 
 <a class="smallButton newUserButton" href="/login/SignUp">Ny bruger</a>
 <button class="smallButton helpButton">Hjælp</button>
+
+<div class="popUp helpPopUp">
+    <div class="popUpBox">
+        <h4>Få hjælp til login</h4>
+        <p>Ring til telefon nr.:</p>
+        <p class="helpNo">+45 12 13 14 15</p>
+        <button class="popUpClose">OK</button>
+    </div>
+</div>
+
+<script>
+    document.querySelector(".helpButton").addEventListener("click", function () {
+        document.querySelector(".popUp").style.display = "block";
+    });
+
+    document.querySelector(".popUpClose").addEventListener("click", function () {
+        document.querySelector(".popUp").style.display = "none";
+    });
+
+
+
+</script>

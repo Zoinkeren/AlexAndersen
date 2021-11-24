@@ -4,56 +4,201 @@
 }
 
 
-<form class="signUpForm" action="/" method="post">
-    <label>Navn</label>
-    <input type="text" name="name" value="" />
-    <label>Mail</label>
-    <input type="email" name="email" value="" />
-    <label>Telefon nr.</label>
-    <input type="tel" name="tel" value="" />
-    <label>Bopæl</label>
-    <input type="text" name="residence" value="" />
-    <label>Lokation</label>
-    <select>
-        <option value="value">Danmark</option>
-        <option value="value">Norge</option>
-        <option value="value">Sverige</option>
-    </select>
+<form class="signUpForm" action="" method="post">
 
-    <label>Type</label>
-    <select>
-        <option value="value">X</option>
-        <option value="value">X</option>
-        <option value="value">X</option>
-    </select>
-
-    <label>Kørekort type</label>
-    <select>
-        <option value="value">1</option>
-        <option value="value">2</option>
-        <option value="value">3</option>
-    </select>
-
-    <label>Udløbsdato</label>
-    <input type="date" name="date" value="" />
+    <div class="signUpSteps signUpStepOne">
+        <label>Navn</label>
+        <input type="text" name="name" value="" />
+        <label>Mail</label>
+        <input type="email" name="email" value="" />
+        <label>Telefon nr.</label>
+        <input type="tel" name="tel" value="" />
+        <label>Bopæl</label>
+        <input type="text" name="residence" value="" />
+        <label>Lokation</label>
+        <select class="formSelect">
+            <option value="value">Danmark</option>
+            <option value="value">Norge</option>
+            <option value="value">Sverige</option>
+        </select>
+    </div>
 
 
-    <label>Førekort</label>
-    <p>Slå til, hvis du har et førekort. Indtast herefter udløbsdatoen for Førekortet</p>
-    <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-    </label>
-    <label>EU kvalifikationsbevis</label>
-    <p>Slå til, hvis du har en EU kvalikationsbevis. Indtast herefter udløbsdatoen for EU godkendelsen</p>
-    <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-    </label>
+    <div class="signUpSteps signUpStepTwo">
+        <label>Type</label>
+        <select>
+            <option value="value">X</option>
+            <option value="value">X</option>
+            <option value="value">X</option>
+        </select>
 
-    <label>Vedhæft billede</label>
-    <p>Vedhæft billede af kørekort og EU kvalikationsbevis.</p>
-    <input type="file" name="image" value="" />
+        <label>Kørekort type</label>
+        <select>
+            <option value="value">1</option>
+            <option value="value">2</option>
+            <option value="value">3</option>
+        </select>
 
-    <a class="bigButton" href="index" >Anmod om registrering</a>
+        <label>Udløbsdato</label>
+        <input type="date" name="date" value="" />
+
+
+        <label>Førekort</label>
+        <p>Slå til, hvis du har et førekort. Indtast herefter udløbsdatoen for Førekortet</p>
+        <label class="switch">
+            <input class="signupCheckedSlider" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <label>EU kvalifikationsbevis</label>
+        <p>Slå til, hvis du har en EU kvalikationsbevis. Indtast herefter udløbsdatoen for EU godkendelsen</p>
+        <label class="switch">
+            <input class="signupCheckedSlider" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+
+    <div class="signUpSteps signUpStepThree">
+        <label>Vedhæft billede</label>
+        <p>Vedhæft billede af kørekort og EU kvalikationsbevis.</p>
+        <input type="file" name="image" value="" />
+    </div>
+
+    
+
+    <div class="signUpNav">
+
+        <button class="bigButton signupNext">Next</button>
+        <input class="bigButton signupSubmit" type="submit" name="name" value="Anmod om registrering" />
+
+        <div class="arrowContainer">
+            <img class="previousButton greyArrow" src="~/icons/arrow_grey.svg" alt="Alternate Text" />
+
+        </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div class="stepContainer">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+
+        <div class="arrowContainer">
+            <img class="nextButton" src="~/icons/arrow.svg" alt="Alternate Text" />
+        </div>
+
+
+    </div>
+
+
 </form>
+
+
+<script>
+    document.querySelector(".signupNext").addEventListener("click", function (event) {
+        event.preventDefault()
+    });
+
+
+    var currentStep = 0;
+
+    showStep(currentStep);
+    fixStepIndicator(currentStep);
+
+    function showStep(n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("signUpSteps");
+        x[n].style.display = "block";
+    }
+
+    document.querySelector(".signupNext").addEventListener("click", function () {
+
+        if (currentStep < 2) {
+            document.querySelector(".previousButton").src = "../icons/arrow.svg";
+            // This function will figure out which Step to display
+            var x = document.getElementsByClassName("signUpSteps");
+            // Hide the current step:
+            x[currentStep].style.display = "none";
+            // Increase the current step by 1:
+            currentStep = currentStep + 1;
+
+            if (currentStep >= 2) {
+                //Show/hide buttons
+                document.querySelector(".signupSubmit").style.cssText = "display:block; pointer-events:auto;";
+                document.querySelector(".signupNext").style.display = "none";
+                
+            }
+            if (currentStep >= 0) {
+                //document.querySelector(".previousButton").style.display = "block";
+            }
+
+            // display the correct step:
+            showStep(currentStep);
+            // update current step circle
+            fixStepIndicator(currentStep);
+        }
+        
+    })
+    // Same as above function for the 'next' arrow button
+    document.querySelector(".nextButton").addEventListener("click", function () {
+
+        if (currentStep < 2) {
+            document.querySelector(".previousButton").src = "../icons/arrow.svg";
+            // This function will figure out which Step to display
+            var x = document.getElementsByClassName("signUpSteps");
+            // Hide the current step:
+            x[currentStep].style.display = "none";
+            // Increase the current step by 1:
+            currentStep = currentStep + 1;
+
+            if (currentStep >= 2) {
+                //Show/hide buttons
+                document.querySelector(".signupSubmit").style.cssText = "display:block; pointer-events:auto;";
+                document.querySelector(".signupNext").style.display = "none";
+                document.querySelector(".nextButton").src = "../icons/arrow_grey.svg";
+            }
+
+            // display the correct step:
+            showStep(currentStep);
+            // update current step circle
+            fixStepIndicator(currentStep);
+        }
+    })
+    // Same as above function but for the 'previous' arrow button
+    document.querySelector(".previousButton").addEventListener("click", function () {
+
+        if (currentStep > 0) {
+            document.querySelector(".nextButton").src = "../icons/arrow.svg";
+            // This function will figure out which Step to display
+            var x = document.getElementsByClassName("signUpSteps");
+            // Hide the current step:
+            x[currentStep].style.display = "none";
+            // decrease the current step by 1:
+            currentStep = currentStep + -1;
+            if (currentStep < 1) {
+                //Show/hide buttons
+                document.querySelector(".signupSubmit").style.cssText = "display:none; pointer-events:none;";
+                document.querySelector(".signupNext").style.display = "block";
+                document.querySelector(".previousButton").src = "../icons/arrow_grey.svg";
+            }
+
+            // display the correct step:
+            showStep(currentStep);
+            // update current step circle
+            fixStepIndicator(currentStep);
+        }
+        
+    })
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, step = document.getElementsByClassName("step");
+        for (i = 0; i < step.length; i++) {
+            step[i].className = step[i].className.replace(" signupActive", "");
+        }
+        //... and adds the "active" class on the current step:
+        step[n].className += " signupActive";
+    }
+
+
+</script>
