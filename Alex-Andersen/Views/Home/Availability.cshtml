@@ -43,16 +43,23 @@
                     }
                 ],
             });
-            document.getElementById("exit").addEventListener("click", function () {
+            document.getElementById("cancel").addEventListener("click", function () {
                 popup.style.display = "none";
             });
             calendar.render();
         });
 </script>
 <div id="calendar-wrapper">
-    <div id="popup">
-        <div id="exit">X</div>
-        <span id="dateSelected">Du har valgt: </span>
+    <div id="popup" class="roundedBox">
+        <div id="dateSelected"></div>
+         
+        <label for="date-start">Fra</label><input type="date" id="date-start" name="date-start"/><br />
+        <label for="date-end">Til</label><input type="date" id="date-end" name="date-end"/>
+        <div class="radio-group">
+            <input type="radio" name="availability" />
+            <input type="radio" name="availability" />
+        </div>
+        <button id="cancel">Cancel</button><button>Tilføj</button>
     </div>
     <div id='calendar'></div>
     <div class="calendar-tooltip">
