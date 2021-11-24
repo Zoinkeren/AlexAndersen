@@ -6,6 +6,7 @@
 
 body {
     background-color: #eee;
+    background-color: #F5F5F5;
 }
 
 :root {
@@ -15,23 +16,38 @@ body {
     --blackText: #212529;
     --white: #fff;
     --grey: #555;
-    --mediumGrey: #B4B2B2;
-    --lightGrey: #ccc;
+    --lightGrey: #F3F3F3;
     --shades: #e8f2e7;
     --mainGreenShade: rgba(27,132,22,.2);
-    --darkGreen: #005140;
+    --darkgreen: #005140;
 }
+
+/*Header*/
+
+header {
+    width: 100vw;
+    height: auto;
+    padding: 8% 10% 2%;
+}
+
 
 .wrapper {
     width: 100vw;
     height: auto;
-    padding: 10%;
+    padding: 2% 10% 2%;
 }
 
 
-/*navigation(partial)
-    nav knapperne skal fylde lige meget!!!
-*/
+/* buttons*/
+
+.bigButton {
+    border-radius: 10px;
+    width: 100%;
+    padding: 4%;
+}
+
+
+/*Footer/navigation*/
 
 .NavigationMenu {
     width: 100%;
@@ -54,34 +70,49 @@ body {
     justify-content: space-around;
     text-align: center;
     list-style: none;
+    width: 100%;
 }
 
-.NavButton{
+.NavButton {
     align-items: center;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-around;
     text-decoration: none;
     padding: 5px;
-    color: black;   
+    color: #77A198;
+    background-color: var(--white);
 }
 
 .NavIcon{
     width: 32px;
     height: 32px;
     padding: 10px;
-    fill: var(--brightGreen);
     }
+
+/*boxes*/
 
 .roundedBox {
     border-radius: 10px;
+    height: auto;
     padding: 2%;
     margin: 5% 0;
-    background-color: lightgrey;
+    background-color: var(--white);
+    filter: drop-shadow(0 1mm 0.5mm #ccc);
 }
 
-.bigButton {
 
+.descriptionWrapper{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.roundedBoxDescription {
+    padding: 2%;
+    color: var(--blackText);
+}
+
+.summaryBox {
     border-radius: 10px;
     width: 100%;
     padding: 4%;

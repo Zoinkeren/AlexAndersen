@@ -1,20 +1,35 @@
 ﻿@{
     Layout = "../Shared/_MasterLayout.cshtml";
     ViewData["Title"] = "Home Page";
+    ViewData["Headline"] = "Oversigt";
+    ViewData["Description"] = "Godmorgen Helge";
 }
 
 <div class="text-center">
-    <h1>Oversigt</h1>
-    <h2>Godmorgen Helge</h2>
+
+
     <div class="roundedBox">
-        <button class="bigButton">
-            tryk
-        </button>
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/house-solid.svg" />
+            <h3 class="roundedBoxDescription">Din igangværende tur</h3>
+        </div>
+        <div class="summaryBox"></div>
     </div>
+
     <div class="roundedBox">
-        <button class="bigButton">
-            tryk
-        </button>
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/house-solid.svg" />
+            <h3 class="roundedBoxDescription">Dine anmodninger</h3>
+        </div>
+        <div class="summaryBox"></div>
+    </div>
+
+    <div class="roundedBox">
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/house-solid.svg" />
+            <h3 class="roundedBoxDescription">Dine kommende ture</h3>
+        </div>
+        <div class="summaryBox"></div>
     </div>
 
 </div>
