@@ -12,13 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <partial name=../partials/Header.cshtml />
     <main class="wrapper">
+
+        <h1>@ViewData["Headline"]</h1>
+        <h3>@ViewData["Description"]</h3>
         <div>
             @RenderBody()
         </div>
+
     </main>
-        <partial name=../partials/Footer.cshtml />
-        <script src="~/js/site.js"></script>    
+
 </body>
 </html>
