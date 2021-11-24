@@ -120,27 +120,32 @@ body {
     box-sizing:border-box;
 }
 
+#popup input[type=radio] {
+    margin-right:5px;
+}
+
 
 #calendar-wrapper .button-group {
     margin-top:5%;
-    padding:5px;
     display:flex;
     justify-content:flex-end;
 }
 
 #calendar-wrapper label {
-    padding-top:10px;
+    padding:10px 0 0;
     display:block;
 }
 #calendar-wrapper .radio-group {
-    padding:10px 0;
+    padding:10px 0 0;
 
 }
 
 #calendar-wrapper .radio-group label {
     display:inline-block;
-    padding-left:5px;
+    width:100%;
+    padding:5px 0;
 }
+
 
 #calendar-wrapper .button-group button {
     padding:10px 20px;
@@ -165,17 +170,6 @@ button#cancel {
     border-radius: 5px;
     background-color: var(--mainRed);
 }
-
-#calendar-wrapper #popup #dateSelected { /*Text*/
-    clear:both;
-    padding:5%;
-}
-
-#calendar-wrapper #popup #exit {
-    float:right;
-    padding:10px;
-}
-
 
 #calendar {
     min-width: 100%;
@@ -205,7 +199,7 @@ button#cancel {
 
 .calendar-tooltip {
     border-top:1px solid var(--lightGrey);
-    margin: 0;
+    margin: 5% 0;
     padding: 5% 0;
 }
 
