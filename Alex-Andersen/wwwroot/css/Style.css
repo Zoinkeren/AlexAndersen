@@ -118,10 +118,21 @@ header {
     padding: 4%;
 }
 
+.descriptionIcon {
+    width: 22px;
+    height: 22px;
+    padding: 5px;
+    align-self: center;
+}
+
+
 /*/////////////////////////////
     SIGN IN & SIGN UP
 /////////////////////////////*/
 
+
+
+    /*ja*/
 
 /* The switch - the box around the slider */
 .switch {
