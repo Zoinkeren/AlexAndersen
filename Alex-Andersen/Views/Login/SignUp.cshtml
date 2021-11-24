@@ -5,66 +5,68 @@
 
 
 <form class="signUpForm" action="" method="post">
+    <div class="stepsContainer">
+        <div class="signUpSteps signUpStepOne">
+            <label>Navn</label>
+            <input type="text" name="name" value="" />
+            <label>Mail</label>
+            <input type="email" name="email" value="" />
+            <label>Telefon nr.</label>
+            <input type="tel" name="tel" value="" />
+            <label>Bopæl</label>
+            <input type="text" name="residence" value="" />
+            <label>Lokation</label>
+            <select class="formSelect">
+                <option value="value">Danmark</option>
+                <option value="value">Norge</option>
+                <option value="value">Sverige</option>
+            </select>
+        </div>
 
-    <div class="signUpSteps signUpStepOne">
-        <label>Navn</label>
-        <input type="text" name="name" value="" />
-        <label>Mail</label>
-        <input type="email" name="email" value="" />
-        <label>Telefon nr.</label>
-        <input type="tel" name="tel" value="" />
-        <label>Bopæl</label>
-        <input type="text" name="residence" value="" />
-        <label>Lokation</label>
-        <select class="formSelect">
-            <option value="value">Danmark</option>
-            <option value="value">Norge</option>
-            <option value="value">Sverige</option>
-        </select>
+
+        <div class="signUpSteps signUpStepTwo">
+            <label>Type</label>
+            <select>
+                <option value="value">X</option>
+                <option value="value">X</option>
+                <option value="value">X</option>
+            </select>
+
+            <label>Kørekort type</label>
+            <select>
+                <option value="value">1</option>
+                <option value="value">2</option>
+                <option value="value">3</option>
+            </select>
+
+            <label>Udløbsdato</label>
+            <input type="date" name="date" value="" />
+
+
+            <label>Førekort</label>
+            <p>Slå til, hvis du har et førekort. Indtast herefter udløbsdatoen for Førekortet</p>
+            <label class="switch">
+                <input class="signupCheckedSlider" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <label>EU kvalifikationsbevis</label>
+            <p>Slå til, hvis du har en EU kvalikationsbevis. Indtast herefter udløbsdatoen for EU godkendelsen</p>
+            <label class="switch">
+                <input class="signupCheckedSlider" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+
+        <div class="signUpSteps signUpStepThree">
+            <label>Vedhæft billede</label>
+            <img class="uploadImgShow" src="~/icons/avatar_placeholder.svg" alt="Alternate Text" />
+            <p>Vedhæft billede af kørekort</p>
+            <img class="signupUploadIcon" src="~/icons/upload.svg" alt="Alternate Text" />
+            <input id="profilePicUpload" type="file" name="image" value="" />
+        </div>
+
     </div>
-
-
-    <div class="signUpSteps signUpStepTwo">
-        <label>Type</label>
-        <select>
-            <option value="value">X</option>
-            <option value="value">X</option>
-            <option value="value">X</option>
-        </select>
-
-        <label>Kørekort type</label>
-        <select>
-            <option value="value">1</option>
-            <option value="value">2</option>
-            <option value="value">3</option>
-        </select>
-
-        <label>Udløbsdato</label>
-        <input type="date" name="date" value="" />
-
-
-        <label>Førekort</label>
-        <p>Slå til, hvis du har et førekort. Indtast herefter udløbsdatoen for Førekortet</p>
-        <label class="switch">
-            <input class="signupCheckedSlider" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <label>EU kvalifikationsbevis</label>
-        <p>Slå til, hvis du har en EU kvalikationsbevis. Indtast herefter udløbsdatoen for EU godkendelsen</p>
-        <label class="switch">
-            <input class="signupCheckedSlider" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-
-
-    <div class="signUpSteps signUpStepThree">
-        <label>Vedhæft billede</label>
-        <p>Vedhæft billede af kørekort og EU kvalikationsbevis.</p>
-        <input type="file" name="image" value="" />
-    </div>
-
-    
 
     <div class="signUpNav">
 
@@ -77,7 +79,7 @@
         </div>
 
         <!-- Circles which indicates the steps of the form: -->
-        <div class="stepContainer">
+        <div class="stepDotsContainer">
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
