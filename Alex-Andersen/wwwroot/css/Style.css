@@ -112,12 +112,41 @@ header {
     color: var(--blackText);
 }
 
+.gridItemDate {
+    grid-area: date;
+    background-color: var(--white);
+    border-radius: 10px;
+    height: 8vh;
+   
+}
+
+.gridItemTextA {
+    grid-area: textA;
+}
+
+.gridItemTextB {
+    grid-area: textB;
+}
+
+.gridItemDroparrow {
+    grid-area: dropArrow;
+    
+}
+
 .summaryBox {
     border-radius: 10px;
     width: auto;
     height: auto;
     padding: 4%;
     background-color: var(--lightGrey);
+
+    display: grid;
+    grid-column-gap: 5%;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        "date textA dropArrow"
+        "date textB dropArrow";
+
 }
 
 .descriptionIcon {
@@ -126,7 +155,6 @@ header {
     padding: 5px;
     align-self: center;
 }
-
 
 /*/////////////////////////////
     SIGN IN & SIGN UP
