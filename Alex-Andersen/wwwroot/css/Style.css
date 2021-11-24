@@ -114,8 +114,10 @@ header {
 
 .summaryBox {
     border-radius: 10px;
-    width: 100%;
+    width: auto;
+    height: auto;
     padding: 4%;
+    background-color: var(--lightGrey);
 }
 
 .descriptionIcon {
