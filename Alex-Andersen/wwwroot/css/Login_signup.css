@@ -245,7 +245,7 @@ body {
     font-size: 1.5rem;
 }
 .signUpForm input, .signUpForm select, .signInForm input {
-    width: 98%;
+    width: 97%;
     padding: 2% 0 2% 2%;
     border-radius: 5px;
     border: 1px solid var(--darkGreen);
@@ -318,8 +318,8 @@ body {
 
 /* Make circles that indicate the steps of the form: */
 .step {
-    height: 25px;
-    width: 25px;
+    height: 1.5rem;
+    width: 1.5rem;
     margin: 0 2px;
     background-color: var(--darkGreen);
     border: none;
@@ -332,15 +332,45 @@ body {
     .step.signupActive {
         opacity: 1;
     }
-
+.stepsContainer {
+    width: 100%;
+    height: 73vh;
+    overflow-y:scroll;
+}
+    .stepsContainer::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
     /* Mark the steps that are finished and valid: */
     .step.finish {
         background-color: #04AA6D;
     }
-.stepContainer {
-    text-align:center;
-    margin-top:40px;
+.stepDotsContainer {
+    text-align: center;
+    margin-top: 40px;
 }
 .greyArrow {
     filter: grayscale(0.5);
+}
+.signUpStepThree .uploadImgShow {
+    width: 100%;
+}
+.signUpStepThree p{
+    font-size:1.5rem;
+    font-weight:600;
+}
+.profilePicUpload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+#profilePicUpload {
+    opacity: 0;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    margin-top:2rem;
+}
+.signupUploadIcon {
+    width: 3rem;
+    position: absolute;
+    margin-top: 2rem;
 }

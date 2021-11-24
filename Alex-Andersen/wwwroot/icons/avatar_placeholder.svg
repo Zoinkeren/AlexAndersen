@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="324" height="307" viewBox="0 0 324 307">
+	<g id="Rectangle_212" data-name="Rectangle 212" fill="#fff" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+		<rect width="324" height="307" rx="5" stroke="none"/>
+		<rect x="0.5" y="0.5" width="323" height="306" rx="4.5" fill="none"/>
+	</g>
+	<path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M77.5,87.188A43.594,43.594,0,1,0,33.906,43.594,43.6,43.6,0,0,0,77.5,87.188Zm38.75,9.688H99.569a52.7,52.7,0,0,1-44.139,0H38.75A38.747,38.747,0,0,0,0,135.625v4.844A14.535,14.535,0,0,0,14.531,155H140.469A14.535,14.535,0,0,0,155,140.469v-4.844A38.747,38.747,0,0,0,116.25,96.875Z" transform="translate(85 76)" fill="#eaeaea"/>
+</svg>
