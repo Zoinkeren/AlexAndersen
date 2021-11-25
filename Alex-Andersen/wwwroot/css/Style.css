@@ -116,20 +116,31 @@ header {
     grid-area: date;
     background-color: var(--white);
     border-radius: 10px;
-    height: 8vh;
+    height: 9vh;
    
 }
 
 .gridItemTextA {
     grid-area: textA;
+    align-self: center;
 }
 
 .gridItemTextB {
     grid-area: textB;
+    align-self: center;
 }
+
+.gridItemRequestStatus{
+    grid-area: requestStatus;
+    align-self: center;
+    justify-self: end;
+}
+
 
 .gridItemDroparrow {
     grid-area: dropArrow;
+    align-self: center;
+    justify-self: end;
     
 }
 
@@ -139,14 +150,12 @@ header {
     height: auto;
     padding: 4%;
     background-color: var(--lightGrey);
-
     display: grid;
     grid-column-gap: 5%;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr 1fr;
     grid-template-areas:
-        "date textA dropArrow"
-        "date textB dropArrow";
-
+        "date textA requestStatus dropArrow"
+        "date textB requestStatus dropArrow";
 }
 
 .descriptionIcon {
