@@ -19,7 +19,6 @@ namespace Alex_Andersen.Models
 
         public ICollection<Departments> Departments { get; set; }
         public ICollection<Status> Statuses { get; set; }
-        // Trip request
-        // trip has drivers
+
     }
 }

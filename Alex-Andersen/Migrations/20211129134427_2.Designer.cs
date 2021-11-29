@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alex_Andersen.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20211124132219_NewDatabase")]
-    partial class NewDatabase
+    [Migration("20211129134427_2")]
+    partial class _2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -139,6 +139,22 @@ namespace Alex_Andersen.Migrations
                     b.ToTable("Departments");
                 });
 
+            modelBuilder.Entity("Alex_Andersen.Models.DriverHaveLicenses", b =>
+                {
+                    b.Property<int>("DriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LicenseID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("DriverID", "LicenseID");
+
+                    b.ToTable("DriverHaveLicenses");
+                });
+
             modelBuilder.Entity("Alex_Andersen.Models.Drivers", b =>
                 {
                     b.Property<int>("DriverId")
@@ -149,17 +165,64 @@ namespace Alex_Andersen.Migrations
                     b.Property<int?>("AvailabilityID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DriverHaveLicensesDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DriverHaveLicensesLicenseID")
+                        .HasColumnType("int");
+
                     b.Property<string>("DriverResidence")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDriverActive")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("TripRequestsDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripRequestsTripID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripsHasDriversDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripsHasDriversTripID")
+                        .HasColumnType("int");
+
                     b.HasKey("DriverId");
 
                     b.HasIndex("AvailabilityID");
 
+                    b.HasIndex("DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID");
+
+                    b.HasIndex("TripRequestsDriverID", "TripRequestsTripID");
+
+                    b.HasIndex("TripsHasDriversDriverID", "TripsHasDriversTripID");
+
                     b.ToTable("Drivers");
+                });
+
+            modelBuilder.Entity("Alex_Andersen.Models.Licenses", b =>
+                {
+                    b.Property<int>("LicenseID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DriverHaveLicensesDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DriverHaveLicensesLicenseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LicenseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LicenseID");
+
+                    b.HasIndex("DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID");
+
+                    b.ToTable("Licenses");
                 });
 
             modelBuilder.Entity("Alex_Andersen.Models.Locations", b =>
@@ -258,6 +321,19 @@ namespace Alex_Andersen.Migrations
                     b.ToTable("TripLocations");
                 });
 
+            modelBuilder.Entity("Alex_Andersen.Models.TripRequests", b =>
+                {
+                    b.Property<int>("DriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TripID")
+                        .HasColumnType("int");
+
+                    b.HasKey("DriverID", "TripID");
+
+                    b.ToTable("TripRequests");
+                });
+
             modelBuilder.Entity("Alex_Andersen.Models.Trips", b =>
                 {
                     b.Property<int>("TripID")
@@ -280,11 +356,40 @@ namespace Alex_Andersen.Migrations
                     b.Property<int?>("TripLocationsTripLocationID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TripRequestsDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripRequestsTripID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripsHasDriversDriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TripsHasDriversTripID")
+                        .HasColumnType("int");
+
                     b.HasKey("TripID");
 
                     b.HasIndex("TripLocationsTripLocationID");
 
+                    b.HasIndex("TripRequestsDriverID", "TripRequestsTripID");
+
+                    b.HasIndex("TripsHasDriversDriverID", "TripsHasDriversTripID");
+
                     b.ToTable("Trips");
+                });
+
+            modelBuilder.Entity("Alex_Andersen.Models.TripsHasDrivers", b =>
+                {
+                    b.Property<int>("DriverID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TripID")
+                        .HasColumnType("int");
+
+                    b.HasKey("DriverID", "TripID");
+
+                    b.ToTable("TripsHasDrivers");
                 });
 
             modelBuilder.Entity("Alex_Andersen.Models.TypePreferences", b =>
@@ -413,6 +518,25 @@ namespace Alex_Andersen.Migrations
                     b.HasOne("Alex_Andersen.Models.Availability", null)
                         .WithMany("drivers")
                         .HasForeignKey("AvailabilityID");
+
+                    b.HasOne("Alex_Andersen.Models.DriverHaveLicenses", null)
+                        .WithMany("Drivers")
+                        .HasForeignKey("DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID");
+
+                    b.HasOne("Alex_Andersen.Models.TripRequests", null)
+                        .WithMany("Drivers")
+                        .HasForeignKey("TripRequestsDriverID", "TripRequestsTripID");
+
+                    b.HasOne("Alex_Andersen.Models.TripsHasDrivers", null)
+                        .WithMany("Drivers")
+                        .HasForeignKey("TripsHasDriversDriverID", "TripsHasDriversTripID");
+                });
+
+            modelBuilder.Entity("Alex_Andersen.Models.Licenses", b =>
+                {
+                    b.HasOne("Alex_Andersen.Models.DriverHaveLicenses", null)
+                        .WithMany("Licenses")
+                        .HasForeignKey("DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID");
                 });
 
             modelBuilder.Entity("Alex_Andersen.Models.Messages", b =>
@@ -441,6 +565,14 @@ namespace Alex_Andersen.Migrations
                     b.HasOne("Alex_Andersen.Models.TripLocations", null)
                         .WithMany("Trips")
                         .HasForeignKey("TripLocationsTripLocationID");
+
+                    b.HasOne("Alex_Andersen.Models.TripRequests", null)
+                        .WithMany("Trips")
+                        .HasForeignKey("TripRequestsDriverID", "TripRequestsTripID");
+
+                    b.HasOne("Alex_Andersen.Models.TripsHasDrivers", null)
+                        .WithMany("Trips")
+                        .HasForeignKey("TripsHasDriversDriverID", "TripsHasDriversTripID");
                 });
 
             modelBuilder.Entity("Alex_Andersen.Models.TypePreferences", b =>
@@ -484,6 +616,13 @@ namespace Alex_Andersen.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("Alex_Andersen.Models.DriverHaveLicenses", b =>
+                {
+                    b.Navigation("Drivers");
+
+                    b.Navigation("Licenses");
+                });
+
             modelBuilder.Entity("Alex_Andersen.Models.Drivers", b =>
                 {
                     b.Navigation("Cities");
@@ -507,11 +646,25 @@ namespace Alex_Andersen.Migrations
                     b.Navigation("Trips");
                 });
 
+            modelBuilder.Entity("Alex_Andersen.Models.TripRequests", b =>
+                {
+                    b.Navigation("Drivers");
+
+                    b.Navigation("Trips");
+                });
+
             modelBuilder.Entity("Alex_Andersen.Models.Trips", b =>
                 {
                     b.Navigation("Departments");
 
                     b.Navigation("Statuses");
+                });
+
+            modelBuilder.Entity("Alex_Andersen.Models.TripsHasDrivers", b =>
+                {
+                    b.Navigation("Drivers");
+
+                    b.Navigation("Trips");
                 });
 
             modelBuilder.Entity("Alex_Andersen.Models.UserMessages", b =>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Alex_Andersen.Migrations
 {
-    public partial class NewDatabase : Migration
+    public partial class _2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,19 @@ namespace Alex_Andersen.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Availabilities", x => x.AvailabilityID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DriverHaveLicenses",
+                columns: table => new
+                {
+                    LicenseID = table.Column<int>(type: "int", nullable: false),
+                    DriverID = table.Column<int>(type: "int", nullable: false),
+                    ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DriverHaveLicenses", x => new { x.DriverID, x.LicenseID });
                 });
 
             migrationBuilder.CreateTable(
@@ -49,6 +62,30 @@ namespace Alex_Andersen.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TripRequests",
+                columns: table => new
+                {
+                    DriverID = table.Column<int>(type: "int", nullable: false),
+                    TripID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TripRequests", x => new { x.DriverID, x.TripID });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TripsHasDrivers",
+                columns: table => new
+                {
+                    DriverID = table.Column<int>(type: "int", nullable: false),
+                    TripID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TripsHasDrivers", x => new { x.DriverID, x.TripID });
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserMessages",
                 columns: table => new
                 {
@@ -62,6 +99,27 @@ namespace Alex_Andersen.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Licenses",
+                columns: table => new
+                {
+                    LicenseID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LicenseName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DriverHaveLicensesDriverID = table.Column<int>(type: "int", nullable: true),
+                    DriverHaveLicensesLicenseID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Licenses", x => x.LicenseID);
+                    table.ForeignKey(
+                        name: "FK_Licenses_DriverHaveLicenses_DriverHaveLicensesDriverID_DriverHaveLicensesLicenseID",
+                        columns: x => new { x.DriverHaveLicensesDriverID, x.DriverHaveLicensesLicenseID },
+                        principalTable: "DriverHaveLicenses",
+                        principalColumns: new[] { "DriverID", "LicenseID" },
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Drivers",
                 columns: table => new
                 {
@@ -69,7 +127,13 @@ namespace Alex_Andersen.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DriverResidence = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsDriverActive = table.Column<bool>(type: "bit", nullable: false),
-                    AvailabilityID = table.Column<int>(type: "int", nullable: true)
+                    AvailabilityID = table.Column<int>(type: "int", nullable: true),
+                    DriverHaveLicensesDriverID = table.Column<int>(type: "int", nullable: true),
+                    DriverHaveLicensesLicenseID = table.Column<int>(type: "int", nullable: true),
+                    TripRequestsDriverID = table.Column<int>(type: "int", nullable: true),
+                    TripRequestsTripID = table.Column<int>(type: "int", nullable: true),
+                    TripsHasDriversDriverID = table.Column<int>(type: "int", nullable: true),
+                    TripsHasDriversTripID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,6 +143,24 @@ namespace Alex_Andersen.Migrations
                         column: x => x.AvailabilityID,
                         principalTable: "Availabilities",
                         principalColumn: "AvailabilityID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Drivers_DriverHaveLicenses_DriverHaveLicensesDriverID_DriverHaveLicensesLicenseID",
+                        columns: x => new { x.DriverHaveLicensesDriverID, x.DriverHaveLicensesLicenseID },
+                        principalTable: "DriverHaveLicenses",
+                        principalColumns: new[] { "DriverID", "LicenseID" },
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Drivers_TripRequests_TripRequestsDriverID_TripRequestsTripID",
+                        columns: x => new { x.TripRequestsDriverID, x.TripRequestsTripID },
+                        principalTable: "TripRequests",
+                        principalColumns: new[] { "DriverID", "TripID" },
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Drivers_TripsHasDrivers_TripsHasDriversDriverID_TripsHasDriversTripID",
+                        columns: x => new { x.TripsHasDriversDriverID, x.TripsHasDriversTripID },
+                        principalTable: "TripsHasDrivers",
+                        principalColumns: new[] { "DriverID", "TripID" },
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -92,7 +174,11 @@ namespace Alex_Andersen.Migrations
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsTripExpress = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TripLocationsTripLocationID = table.Column<int>(type: "int", nullable: true)
+                    TripLocationsTripLocationID = table.Column<int>(type: "int", nullable: true),
+                    TripRequestsDriverID = table.Column<int>(type: "int", nullable: true),
+                    TripRequestsTripID = table.Column<int>(type: "int", nullable: true),
+                    TripsHasDriversDriverID = table.Column<int>(type: "int", nullable: true),
+                    TripsHasDriversTripID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -102,6 +188,18 @@ namespace Alex_Andersen.Migrations
                         column: x => x.TripLocationsTripLocationID,
                         principalTable: "TripLocations",
                         principalColumn: "TripLocationID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Trips_TripRequests_TripRequestsDriverID_TripRequestsTripID",
+                        columns: x => new { x.TripRequestsDriverID, x.TripRequestsTripID },
+                        principalTable: "TripRequests",
+                        principalColumns: new[] { "DriverID", "TripID" },
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Trips_TripsHasDrivers_TripsHasDriversDriverID_TripsHasDriversTripID",
+                        columns: x => new { x.TripsHasDriversDriverID, x.TripsHasDriversTripID },
+                        principalTable: "TripsHasDrivers",
+                        principalColumns: new[] { "DriverID", "TripID" },
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -371,6 +469,26 @@ namespace Alex_Andersen.Migrations
                 column: "AvailabilityID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Drivers_DriverHaveLicensesDriverID_DriverHaveLicensesLicenseID",
+                table: "Drivers",
+                columns: new[] { "DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Drivers_TripRequestsDriverID_TripRequestsTripID",
+                table: "Drivers",
+                columns: new[] { "TripRequestsDriverID", "TripRequestsTripID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Drivers_TripsHasDriversDriverID_TripsHasDriversTripID",
+                table: "Drivers",
+                columns: new[] { "TripsHasDriversDriverID", "TripsHasDriversTripID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Licenses_DriverHaveLicensesDriverID_DriverHaveLicensesLicenseID",
+                table: "Licenses",
+                columns: new[] { "DriverHaveLicensesDriverID", "DriverHaveLicensesLicenseID" });
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Messages_UserMessagesUserMessageID",
                 table: "Messages",
                 column: "UserMessagesUserMessageID");
@@ -389,6 +507,16 @@ namespace Alex_Andersen.Migrations
                 name: "IX_Trips_TripLocationsTripLocationID",
                 table: "Trips",
                 column: "TripLocationsTripLocationID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trips_TripRequestsDriverID_TripRequestsTripID",
+                table: "Trips",
+                columns: new[] { "TripRequestsDriverID", "TripRequestsTripID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trips_TripsHasDriversDriverID_TripsHasDriversTripID",
+                table: "Trips",
+                columns: new[] { "TripsHasDriversDriverID", "TripsHasDriversTripID" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TypePreferences_DriversDriverId",
@@ -415,6 +543,9 @@ namespace Alex_Andersen.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Countries");
+
+            migrationBuilder.DropTable(
+                name: "Licenses");
 
             migrationBuilder.DropTable(
                 name: "Messages");
@@ -453,7 +584,16 @@ namespace Alex_Andersen.Migrations
                 name: "Availabilities");
 
             migrationBuilder.DropTable(
+                name: "DriverHaveLicenses");
+
+            migrationBuilder.DropTable(
                 name: "TripLocations");
+
+            migrationBuilder.DropTable(
+                name: "TripRequests");
+
+            migrationBuilder.DropTable(
+                name: "TripsHasDrivers");
         }
     }
 }

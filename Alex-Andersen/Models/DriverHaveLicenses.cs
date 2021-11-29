@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Alex_Andersen.Models
 {
-    public class TripRequests
+    public class DriverHaveLicenses
     {
         [Key]
         [Column(Order = 0)]
-        public int DriverID { get; set; }
-
+        public int LicenseID { get; set; }
         [Key]
         [Column(Order = 1)]
-        public int TripID { get; set; }
+        public int DriverID { get; set; }
+
+        public DateTime ExpirationDate { get; set; }
 
         // Foreign Key
-
-        public ICollection<Trips> Trips { get; set; }
+        public ICollection<Licenses> Licenses { get; set; }
         public ICollection<Drivers> Drivers { get; set; }
     }
 }
