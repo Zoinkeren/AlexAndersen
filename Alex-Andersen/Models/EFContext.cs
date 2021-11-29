@@ -25,11 +25,28 @@ namespace Alex_Andersen.Models
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<TripLocations> TripLocations { get; set; }
-        //public DbSet<TripRequests> TripRequests { get; set; }
+        public DbSet<TripRequests> TripRequests { get; set; }
         public DbSet<Trips> Trips { get; set; }
         public DbSet<TypePreferences> TypePreferences { get; set; }
         public DbSet<UserMessages> UserMessages { get; set; }
 
         public DbSet<Users> Users { get; set; }
+
+        public DbSet<TripsHasDrivers> TripsHasDrivers { get; set; }
+
+        public DbSet<DriverHaveLicenses> DriverHaveLicenses { get; set; }
+
+        public DbSet<Licenses> Licenses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TripsHasDrivers>()
+                .HasKey(c => new { c.DriverID, c.TripID });
+            modelBuilder.Entity<TripRequests>()
+              .HasKey(c => new { c.DriverID, c.TripID });
+            modelBuilder.Entity<DriverHaveLicenses>()
+              .HasKey(c => new { c.DriverID, c.LicenseID });
+        }
+ 
     }
 }
