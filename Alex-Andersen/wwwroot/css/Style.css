@@ -151,7 +151,7 @@ header {
     padding: 4%;
     background-color: var(--lightGrey);
     display: grid;
-    grid-column-gap: 5%;
+    grid-column-gap: 10px;
     grid-template-columns: 2fr 3fr 2fr 1fr;
     grid-template-areas:
         "date textA requestStatus dropArrow"
@@ -218,7 +218,7 @@ h4 {
         flex-direction: column;
         justify-content: space-around;
         text-decoration: none;
-        padding: 5 px;
+        padding: 5px;
         color: black;
     }
 
