@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int TypePreferenceID { get; set; }
+        [MaxLength(50)]
         public string TypeName { get; set; }
     }
 }
