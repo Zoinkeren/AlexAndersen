@@ -29,13 +29,9 @@ namespace Alex_Andersen.Models
         public DbSet<Trips> Trips { get; set; }
         public DbSet<TypePreferences> TypePreferences { get; set; }
         public DbSet<UserMessages> UserMessages { get; set; }
-
         public DbSet<Users> Users { get; set; }
-
         public DbSet<TripsHasDrivers> TripsHasDrivers { get; set; }
-
         public DbSet<DriverHaveLicenses> DriverHaveLicenses { get; set; }
-
         public DbSet<Licenses> Licenses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

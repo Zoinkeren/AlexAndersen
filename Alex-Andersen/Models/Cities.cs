@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int CityID { get; set; }
+        [MaxLength(50)]
         public string CityName { get; set; }
         public int CityZip { get; set; }
 

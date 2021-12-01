@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int LocationID { get; set; }
+        [MaxLength(200)]
         public string LocationAddress { get; set; }
 
         // foreign Key

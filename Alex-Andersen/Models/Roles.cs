@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int RoleID { get; set; }
+        [MaxLength(15)]
         public string RoleName { get; set; }
     }
 }
