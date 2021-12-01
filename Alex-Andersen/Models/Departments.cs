@@ -10,7 +10,9 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int DepartmentID { get; set; }
+        [MaxLength(200)]
         public string DepartmentName { get; set; }
+        [MaxLength(200)]
         public string DepartmentAddress { get; set; }
 
         // Foreign Key

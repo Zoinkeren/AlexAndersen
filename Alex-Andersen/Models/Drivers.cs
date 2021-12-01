@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int DriverId { get; set; }
+        [MaxLength(200)]
         public string DriverResidence { get; set; }
         // public string Image_file { get; set; }
         public bool IsDriverActive { get; set; }

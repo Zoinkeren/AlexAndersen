@@ -11,6 +11,7 @@ namespace Alex_Andersen.Models
 
             [Key]
             public int LicenseID { get; set; }
+            [MaxLength(100)]
             public string LicenseName { get; set; }
     }
 }
