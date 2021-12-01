@@ -10,9 +10,13 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int TripID { get; set; }
+        [Timestamp]
         public DateTime StartDate { get; set; }
+        [Timestamp]
         public DateTime EndDate { get; set; }
+
         public bool IsTripExpress { get; set; }
+        [MaxLength(255), MinLength(10, ErrorMessage = "Beskrivelsens længde skal min. være 4")]
         public string Description { get; set; }
 
         // Foreign Key

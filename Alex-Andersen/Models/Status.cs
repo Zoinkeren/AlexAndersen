@@ -10,6 +10,7 @@ namespace Alex_Andersen.Models
     {
         [Key]
         public int StatusID { get; set; }
+        [MaxLength(25), MinLength(4, ErrorMessage = "Status længde skal min. være 4")]
         public string StatusName { get; set; }
     }
 }
