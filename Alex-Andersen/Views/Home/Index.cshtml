@@ -5,8 +5,6 @@
     ViewData["Description"] = "Godmorgen Helge";
 }
 
-<div class="text-center">
-
 
     <!--Din iganværende tur-->
     <div class="roundedBox">
@@ -14,9 +12,14 @@
             <img class="descriptionIcon" src="~/icons/road-solid.svg" />
             <h3 class="roundedBoxDescription">Din igangværende tur</h3>
         </div>
-        <div class="summaryBoxWithoutStatus">
+        <button type="button" class="summaryBoxWithoutStatus">
             <div class="gridItemDate">
-
+                <div class="itemDateDay">
+                    <p class="itemDateDescription">5.</p>
+                </div>
+                <div class="itemDateMonth">
+                    <p class="itemDateDescription">Nov</p>
+                </div>
             </div>
             <div class="gridItemTextA">
                 <p>Placeholder</p>
@@ -28,6 +31,9 @@
             <div class="gridItemTextB">
                 <p>Placeholder</p>
             </div>
+        </button>
+        <div class="expanderContent">
+            <p>loremloremloremlorem</p>
         </div>
     </div>
 
@@ -40,7 +46,12 @@
         </div>
         <div class="summaryBox">
             <div class="gridItemDate">
-
+                <div class="itemDateDay">
+                    <p class="itemDateDescription">5.</p>
+                </div>
+                <div class="itemDateMonth">
+                    <p class="itemDateDescription">Nov</p>
+                </div>
             </div>
             <div class="gridItemTextA">
                 <p>Placeholder</p>
@@ -64,21 +75,29 @@
             <img class="descriptionIcon" src="~/icons/tasks-solid.svg" />
             <h3 class="roundedBoxDescription">Dine kommende ture</h3>
         </div>
-        <div class="summaryBoxWithoutStatus">
-            <div class="gridItemDate">
-
+        <button type="button" class="expanderButton">
+            <div class="summaryBoxWithoutStatus">
+                <div class="gridItemDate">
+                    <div class="itemDateDay">
+                        <p class="itemDateDescription">5.</p>
+                    </div>
+                    <div class="itemDateMonth">
+                        <p class="itemDateDescription">Nov</p>
+                    </div>
+                </div>
+                <div class="gridItemTextA">
+                    <p>Placeholder</p>
+                </div>
+                <div class="gridItemDroparrow">
+                    <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
+                </div>
+                <div class="gridItemTextB">
+                    <p>Placeholder</p>
+                </div>
             </div>
-            <div class="gridItemTextA">
-                <p>Placeholder</p>
-            </div>
+        </button>
+        <div class="expanderContent">
             
-            <div class="gridItemDroparrow">
-                <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
-            </div>
-            <div class="gridItemTextB">
-                <p>Placeholder</p>
-            </div>
         </div>
     </div>
 
-</div>
