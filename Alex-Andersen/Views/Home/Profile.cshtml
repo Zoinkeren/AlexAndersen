@@ -1,5 +1,65 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "../Shared/_MasterLayout.cshtml";
+    ViewData["Title"] = "Profile Page";
+    ViewData["Headline"] = "Profil";
+    ViewData["Description"] = "";
 }
+<div class="text-center">
+    <div class="roundedBox">
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/house-solid.svg" />
+            <h3 class="roundedBoxDescription">Din igangværende tur</h3>
+        </div>
+        <div class="summaryBoxProfile"></div>
+    </div>
+    <div class="Profilelocation">
+        <div class="Profile-Grid-container">
+            <div class="Profile-Grid-item">Lokation:</div>
+            <div class="sub-profile-item"> test </div>
+            <div class="sub-profile-item"> test2 </div>
+            <div class="Profile-Grid-item">Preferencer:</div>
+            <div class="Profile-Grid-item">Fakevej 43.</div>
+            <div class="Profile-Grid-item">Odense 5000</div>
+            <div class="Profile-Grid-item">Indenrigs</div>
+            <div class="Profile-Grid-item">Udensrigs</div>
+        </div>
+    </div>
+
+    <div class="roundedBox">
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/address-card-solid.svg" />
+            <h3 class="roundedBoxDescription">Dine Licenser</h3>
+        </div>
+        <div class="summaryBoxProfile"></div>
+    </div>
+    <div class="roundedBox">
+        <div class="descriptionWrapper">
+            <img class="descriptionIcon" src="~/icons/history-solid.svg" />
+            <h3 class="roundedBoxDescription">Kørselshistorik</h3>
+        </div>
+        <div class="summaryBox">
+            <div class="roundedBoxProfile">
+                <button class="bigButton position">
+                    <div class="date">
+                        <h6>5</h6>
+                        <p>Nov</p>
+                    </div>
+                    <div class="tripInfo">
+                        <ul>
+                            <li>Fra:</li>
+                            <li>Odense DK</li>
+                            <li>Start:</li>
+                            <li>12:00</li>
+                        </ul>
+                        <ul>
+                            <li>Til:</li>
+                            <li>Greve DK</li>
+                            <li>Ankommst:</li>
+                            <li>22:00</li>
+                        </ul>
+
+                    </div>
+                </button>
+            </div>
+        </div>
+</div>

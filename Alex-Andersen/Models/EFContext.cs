@@ -47,6 +47,6 @@ namespace Alex_Andersen.Models
             modelBuilder.Entity<DriverHaveLicenses>()
               .HasKey(c => new { c.DriverID, c.LicenseID });
         }
- 
+
     }
 }
