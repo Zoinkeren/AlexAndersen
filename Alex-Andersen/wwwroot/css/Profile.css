@@ -103,19 +103,47 @@ h4 {
     border-radius: 10px;
     width: 100%;
     padding: 4%;
+    border: none;
 }
 /*Location grid*/
 
 .Profile-Grid-container {
-flex: 1;
-
+display: grid;
+grid-template-columns: 1fr 1fr;
 padding: 1em;
+width: 65%;
+margin: 0 auto;
 }
 .Profile-Grid-item {
-flex: 50%;
-padding: 16px;
-height: 250px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.Profile-Grid-item-sub {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
 }
 .profileLocation {
     display: flex;
+}
+
+.preference {
+justify-self: end;
+}
+
+.LocationIcon {
+width: 18px;
+height: 18px;
+}
+
+.ProfileWrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 1em;
+    width: 80%;
+    margin: 0 auto;
+}
+.ProfileText{
+
 }
