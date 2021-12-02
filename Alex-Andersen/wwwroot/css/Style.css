@@ -103,6 +103,16 @@ header {
 
 /*boxes*/
 
+.accordion{
+    border-radius: 10px;
+    height: auto;
+    padding: 2%;
+    margin: 5% 0;
+    background-color: var(--white);
+    filter: drop-shadow(0 1mm 0.5mm #ccc);
+    display: block;
+}
+
 .roundedBox {
     border-radius: 10px;
     height: auto;
@@ -200,8 +210,25 @@ header {
         "date textB requestStatus dropArrow";
 }
 
-.summaryBoxWithoutStatus{  
+.accordionButton{  
     border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-areas:
+        "date textA dropArrow"
+        "date textB dropArrow";
+}
+
+.summaryBoxWithoutStatus {
+    border-radius: 10px;
+    cursor: pointer;
     border-style: none;
     width: auto;
     height: auto;
@@ -226,19 +253,23 @@ header {
     width: 100%;
 }
 
-
-
-            /*
-            .expanderContent{
-                overflow: hidden;
-                max-height: 0;
-                width: auto;
-                height: auto;
-                transition: max-height 0.2s;
-                background-color: var(--lightGrey);
-                padding: 0 4%
-            }
-                */
+.expanderButton--active {
+    border: none;
+    outline: none;
+    display: block;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 100%;
+}
+.expanderContent{
+   overflow: hidden;
+   max-height: 0;
+   width: auto;
+   height: auto;
+   transition: max-height 0.2s;
+   background-color: var(--lightGrey);
+   padding: 0 4%
+ }
 
 /*Messages*/
 .messageBox {
