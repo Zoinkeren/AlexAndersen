@@ -8,13 +8,9 @@ namespace Alex_Andersen.Models
 {
     public class EFContext : DbContext
     {
-        private const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=EFCore;Trusted_Connection=True;";
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(connectionString);
-
-        }
+        public EFContext (DbContextOptions<EFContext> options) : base(options) { }
+        
         public DbSet<Availability> Availabilities { get; set; }
         public DbSet<Cities> Cities { get; set; }
         public DbSet<Countries> Countries { get; set; }
@@ -43,6 +39,8 @@ namespace Alex_Andersen.Models
             modelBuilder.Entity<DriverHaveLicenses>()
               .HasKey(c => new { c.DriverID, c.LicenseID });
         }
+
+        
  
     }
 }
