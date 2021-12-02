@@ -21,4 +21,5 @@ namespace Alex_Andersen.Models
         public ICollection<Cities> Cities { get; set; }
         public ICollection<Users> Users { get; set; }
     }
+
 }
