@@ -223,23 +223,22 @@ header {
     display: block;
     transition: 0.2s;
     cursor: pointer;
-}
-
-.expanderButton::after {
-
+    width: 100%;
 }
 
 
-.expanderContent{
-    overflow: hidden;
-    max-height: 0;
-    width: auto;
-    height: auto;
-    transition: max-height 0.2s;
-    background-color: var(--lightGrey);
-    padding: 0 4%
-}
 
+            /*
+            .expanderContent{
+                overflow: hidden;
+                max-height: 0;
+                width: auto;
+                height: auto;
+                transition: max-height 0.2s;
+                background-color: var(--lightGrey);
+                padding: 0 4%
+            }
+                */
 
 /*Messages*/
 .messageBox {
