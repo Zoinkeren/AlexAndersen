@@ -63,6 +63,7 @@ header {
 .NavigationMenu {
     width: 100%;
     border-top: solid #005140 0.5px;
+    background-color: var(--white);
     height: auto;
     position: fixed;
     bottom: 0;
@@ -271,6 +272,67 @@ header {
    padding: 0 4%
  }
 
+.tripInformation{
+   
+}
+
+.tripInformationList{
+    list-style: none;
+    padding: 2% 0;
+ 
+}
+
+.tripInformationListeditem{
+    padding: 1% 0;
+    font-weight: 700;
+}
+
+.tripCallandMailbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5% 0;
+}
+
+.tripCall {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.tripMail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10%;
+}
+
+.deregistrerTripButton{
+    width: 100%;
+    background-color: var(--mainRed);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+
+}
+
+
+.registrerTripButton {
+    width: 100%;
+    background-color: var(--mainGreen);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--white);
+}
 
 
 /*Messages*/
