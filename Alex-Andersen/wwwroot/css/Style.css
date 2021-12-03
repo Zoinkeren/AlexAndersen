@@ -185,6 +185,12 @@ header {
     
 }
 
+.gridItemUpArrow {
+    grid-area: upArrow;
+    align-self: center;
+    justify-self: end;
+    overflow: hidden;
+}
 
 .gridItemMessageHeadline{
     grid-area: messageHeadline;
