@@ -178,12 +178,13 @@ header {
 }
 
 
-.gridItemDroparrow {
-    grid-area: dropArrow;
+.gridItemDownArrow {
+    grid-area: downArrow;
     align-self: center;
     justify-self: end;
     
 }
+
 
 .gridItemMessageHeadline{
     grid-area: messageHeadline;
@@ -211,9 +212,8 @@ header {
         "date textB requestStatus dropArrow";
 }
 
-.accordionButton{  
+.accordionButton {
     border-radius: 10px;
-    cursor: pointer;
     border-style: none;
     width: 100%;
     height: auto;
@@ -223,9 +223,10 @@ header {
     grid-column-gap: 10px;
     grid-template-columns: 2fr 10fr 1fr;
     grid-template-areas:
-        "date textA dropArrow"
-        "date textB dropArrow";
+        "date textA downArrow"
+        "date textB downArrow";
 }
+
 
 .summaryBoxWithoutStatus {
     border-radius: 10px;
@@ -308,7 +309,7 @@ header {
     padding-right: 10%;
 }
 
-.deregistrerTripButton{
+.deregistrerTripButton {
     width: 100%;
     background-color: var(--mainRed);
     border-style: none;
@@ -318,7 +319,7 @@ header {
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--white);
-
+    cursor: pointer
 }
 
 
@@ -332,6 +333,7 @@ header {
     font-weight: 600;
     font-size: 1.2rem;
     color: var(--white);
+    cursor: pointer;
 }
 
 
