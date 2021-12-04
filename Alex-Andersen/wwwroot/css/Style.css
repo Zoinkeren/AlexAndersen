@@ -114,23 +114,12 @@ header {
     display: block;
 }
 
-.roundedBox {
-    border-radius: 10px;
-    height: auto;
-    padding: 2%;
-    margin: 5% 0;
-    background-color: var(--white);
-    filter: drop-shadow(0 1mm 0.5mm #ccc);
-    display: block;
-}
-
-
 .descriptionWrapper{
     display: flex;
     justify-content: flex-start;
 }
 
-.roundedBoxDescription {
+.accordionDescription {
     padding: 2%;
     color: var(--blackText);
 }
@@ -154,7 +143,6 @@ header {
     color: var(--darkgreen);
     font-size: 1.2rem;
     font-weight: 700;
-
 }
 
 .gridItemTextA {
@@ -185,12 +173,6 @@ header {
     
 }
 
-.gridItemUpArrow {
-    grid-area: upArrow;
-    align-self: center;
-    justify-self: end;
-    overflow: hidden;
-}
 
 .gridItemMessageHeadline{
     grid-area: messageHeadline;
@@ -204,18 +186,19 @@ header {
     align-self: center;
 }
 
-.summaryBox {
+.accordionButtonWithStatus {
     border-radius: 10px;
-    width: auto;
+    border-style: none;
+    width: 100%;
     height: auto;
     padding: 4%;
     background-color: var(--lightGrey);
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 2fr 3fr 2fr 0fr;
+    grid-template-columns: 2fr 10fr 2fr 0fr;
     grid-template-areas:
-        "date textA requestStatus dropArrow"
-        "date textB requestStatus dropArrow";
+        "date textA requestStatus downArrow"
+        "date textB requestStatus downArrow";
 }
 
 .accordionButton {
@@ -233,22 +216,6 @@ header {
         "date textB downArrow";
 }
 
-
-.summaryBoxWithoutStatus {
-    border-radius: 10px;
-    cursor: pointer;
-    border-style: none;
-    width: auto;
-    height: auto;
-    padding: 4%;
-    background-color: var(--lightGrey);
-    display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: 2fr 10fr 1fr;
-    grid-template-areas:
-        "date textA dropArrow"
-        "date textB dropArrow";
-}
 
 /*expander*/
 
@@ -354,8 +321,8 @@ header {
     grid-column-gap: 10px;
     grid-template-columns: 3fr 1fr 0fr;
     grid-template-areas:
-        "messageHeadline requestStatus dropArrow"
-        "cities requestStatus dropArrow";
+        "messageHeadline requestStatus downArrow"
+        "cities requestStatus downArrow";
 }
 
 

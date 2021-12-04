@@ -7,98 +7,93 @@
 
 
     <!--Din iganværende tur-->
-<div class="roundedBox">
+<div class="accordion">
     <div class="descriptionWrapper">
         <img class="descriptionIcon" src="~/icons/road-solid.svg" />
-        <h3 class="roundedBoxDescription">Din igangværende tur</h3>
+        <h3 class="accordionDescription ">Din igangværende tur</h3>
     </div>
-    <button type="button" class="expanderButton">
-        <div class="summaryBoxWithoutStatus">
-            <div class="gridItemDate">
-                <div class="itemDateDay">
-                    <p class="itemDateDescription">5.</p>
-                </div>
-                <div class="itemDateMonth">
-                    <p class="itemDateDescription">Nov</p>
-                </div>
+    <button type="button" class="accordionButton">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
             </div>
-            <div class="gridItemTextA">
-                <p>Placeholder</p>
-            </div>
-            <div class="gridItemDroparrow">
-                <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
-            </div>
-            <div class="gridItemTextB">
-                <p>Placeholder</p>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
             </div>
         </div>
-        </button>
-        <div class="expanderContent">
-            <p>loremloremloremlorem</p>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
         </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <p>expanded content</p>
+    </div>
 </div>
 
 
     <!--Dine anmodninger-->
-    <div class="roundedBox">
-        <div class="descriptionWrapper">
-            <img class="descriptionIcon" src="~/icons/comments-solid.svg" />
-            <h3 class="roundedBoxDescription">Dine anmodninger</h3>
-        </div>
-        <div class="summaryBox">
-            <div class="gridItemDate">
-                <div class="itemDateDay">
-                    <p class="itemDateDescription">5.</p>
-                </div>
-                <div class="itemDateMonth">
-                    <p class="itemDateDescription">Nov</p>
-                </div>
-            </div>
-            <div class="gridItemTextA">
-                <p>Placeholder</p>
-            </div>
-            <div class="gridItemRequestStatus">
-                <p>afvist</p>
-            </div>
-            <div class="gridItemDroparrow">
-                <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
-            </div>
-            <div class="gridItemTextB">
-                <p>Placeholder</p>
-            </div>
-        </div>
+<div class="accordion">
+    <div class="descriptionWrapper">
+        <img class="descriptionIcon" src="~/icons/comments-solid.svg" />
+        <h3 class="accordionDescription ">Dine anmodninger</h3>
     </div>
+    <button type="button" class="accordionButtonWithStatus">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemRequestStatus">
+            <p>afvist</p>
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+</div>
 
 
     <!--Dine kommende ture-->
-    <div class="roundedBox">
-        <div class="descriptionWrapper">
-            <img class="descriptionIcon" src="~/icons/tasks-solid.svg" />
-            <h3 class="roundedBoxDescription">Dine kommende ture</h3>
-        </div>
-        <button type="button" class="expanderButton">
-            <div class="summaryBoxWithoutStatus">
-                <div class="gridItemDate">
-                    <div class="itemDateDay">
-                        <p class="itemDateDescription">5.</p>
-                    </div>
-                    <div class="itemDateMonth">
-                        <p class="itemDateDescription">Nov</p>
-                    </div>
-                </div>
-                <div class="gridItemTextA">
-                    <p>Placeholder</p>
-                </div>
-                <div class="gridItemDroparrow">
-                    <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
-                </div>
-                <div class="gridItemTextB">
-                    <p>Placeholder</p>
-                </div>
-            </div>
-        </button>
-        <div class="expanderContent">
-            
-        </div>
+<div class="accordion">
+    <div class="descriptionWrapper">
+        <img class="descriptionIcon" src="~/icons/tasks-solid.svg" />
+        <h3 class="accordionDescription ">Dine kommende ture</h3>
     </div>
+    <button type="button" class="accordionButton">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
 
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/arrow.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+</div>
