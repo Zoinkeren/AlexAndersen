@@ -5,31 +5,38 @@
     ViewData["Description"] = "";
 }
 <div class="text-center">
+    <img class="SettingsIcon" src="~/icons/settings-outline.svg" width="32" height="32" />
     <div class="roundedBox">
         <div class="ProfileWrapper">
-            <img class="ProfileIcon" src="~/icons/user-alt-solid.svg" width="32" height="32"  />
+            <div class="ProfileIconWrapper">
+                <img class="ProfileIcon" src="~/icons/user-alt-solid.svg" width="62" height="62" />
+
+            </div>
             <div class="ProfileText">
-             <h1>Federik Seksår</h1>
-            <p> tlf. +45 50 12 00 12</p>
-            <p> Frederikseksår@hotmail.dk</p>
-            <p> Redigér din profil</p>
+                <h1 style="color:black;">Federik Seksår</h1>
+                <p> tlf. +45 50 12 00 12</p>
+                <p> Frederikseksår@hotmail.dk</p>
+
+                <div class="ProfileText EditProfile">
+                    Redigér din profil
+                </div>
             </div>
         </div>
 
     </div>
     <div class="Profilelocation">
-        <div class="Profile-Grid-container"> 
-        <div class="Profile-Grid-item">Lokation :</div>
-        <div class="Profile-Grid-item preference">Preferencer :</div>
-        <div class="Profile-Grid-item-sub">
-            <p>Fakevej 43.</p>
-            <p>Odense 5000,</p>
+        <div class="Profile-Grid-container">
+            <div class="Profile-Grid-item">Lokation :</div>
+            <div class="Profile-Grid-item preference">Preferencer :</div>
+            <div class="Profile-Grid-item-sub">
+                <p>Fakevej 43.</p>
+                <p>Odense 5000,</p>
+            </div>
+            <div class="Profile-Grid-item-sub preference">
+                <p>Indenrigs <img src="~/icons/check-circle-solid.svg" width="18" height="18" /></p>
+                <p>Udensrigs <img src="~/icons/cancel.svg" width="18" height="18" /></p>
+            </div>
         </div>
-        <div class="Profile-Grid-item-sub preference">
-            <p>Indenrigs <img src="~/icons/check-circle-solid.svg" width="18" height="18" /></p>
-            <p>Udensrigs <img src="~/icons/cancel.svg" width="18" height="18" /></p>
-        </div>
-    </div>
     </div>
 
     <div class="roundedBox">
@@ -37,34 +44,47 @@
             <img class="descriptionIcon" src="~/icons/address-card-solid.svg" />
             <h3 class="roundedBoxDescription">Dine Licenser</h3>
         </div>
+        <div class="ButtonLicensesWrapper">
+            <button class="ButtonLicenses">AM</button>
+            <button class="ButtonLicenses">C1E</button>
+            <button class="ButtonLicenses">C1E</button>
+            <button class="ButtonLicenses">C1E</button>
+            <button class="ButtonLicenses">C1E</button>
+            <button class="ButtonLicenses">C1E</button>
+        </div>
+        <div class="LicenseSigns">
+                <p>Førerkort <img src="~/icons/cancel.svg" width="18" height="18" /></p>
+                <p>EU-kvalifikationsbevis <img src="~/icons/check-circle-solid.svg" width="18" height="18" /></p>
 
+        </div>
     </div>
     <div class="roundedBox">
         <div class="descriptionWrapper">
             <img class="descriptionIcon" src="~/icons/history-solid.svg" />
             <h3 class="roundedBoxDescription">Kørselshistorik</h3>
         </div>
-            <div class="roundedBoxProfile">
-                <button class="bigButtonProfil position">
-                    <div class="date">
-                        <h6>5</h6>
-                        <p>Nov</p>
-                    </div>
-                    <div class="tripInfo">
-                        <ul>
-                            <li>Fra:</li>
-                            <li>Odense DK</li>
-                            <li>Start:</li>
-                            <li>12:00</li>
-                        </ul>
-                        <ul>
-                            <li>Til:</li>
-                            <li>Greve DK</li>
-                            <li>Ankommst:</li>
-                            <li>22:00</li>
-                        </ul>
-                    </div>
-                </button>
-            </div>
+        <div class="roundedBoxProfile">
+            <button class="bigButtonProfil position">
+                <div class="date">
+                    <h6>5</h6>
+                    <p>Nov</p>
+                </div>
+                <div class="tripInfo">
+                    <ul>
+                        <li>Fra:</li>
+                        <li>Odense DK</li>
+                        <li>Start:</li>
+                        <li>12:00</li>
+                    </ul>
+                    <ul>
+                        <li>Til:</li>
+                        <li>Greve DK</li>
+                        <li>Ankommst:</li>
+                        <li>22:00</li>
+                    </ul>
+                </div>
+            </button>
+        </div>
 
+    </div>
 </div>
