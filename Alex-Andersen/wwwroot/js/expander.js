@@ -1,7 +1,7 @@
 ﻿// expander
+document.querySelectorAll('.accordionButtonTrips, .accordionButtonOverview').forEach(button => {
+    button.addEventListener('click', function() {
 
-document.querySelectorAll('.accordionButton').forEach(button => {
-    button.addEventListener('click', () => {
         const expander_Content = button.nextElementSibling;
 
         button.classList.toggle('accordionButton--active');
@@ -11,5 +11,17 @@ document.querySelectorAll('.accordionButton').forEach(button => {
         } else {
             expander_Content.style.maxHeight = 0;
         }
+
+        if (button.classList.contains('accordionButton--active')) {
+            var t = this.children;
+            e = t[2];
+            e = e.children;
+            e[0].style.transform = "rotate(180deg)";
+        }
+        else {
+            e[0].style.transform = "rotate(0deg)";
+        }
     });
 });
+
+
