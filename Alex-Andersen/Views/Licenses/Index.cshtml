@@ -1,8 +1,7 @@
-﻿@model IEnumerable<Alex_Andersen.Models.Licenses>
+﻿@model IEnumerable<Alex_Andersen.Models.License>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -26,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.LicenseName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.LicenseID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LicenseID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LicenseID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.LicenseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LicenseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LicenseId">Delete</a>
             </td>
         </tr>
 }

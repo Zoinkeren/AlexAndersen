@@ -11,9 +11,9 @@ namespace Alex_Andersen.Controllers
 {
     public class LicensesController : Controller
     {
-        private readonly EFContext _context;
+        private readonly MyDbContext _context;
 
-        public LicensesController(EFContext context)
+        public LicensesController(MyDbContext context)
         {
             _context = context;
         }
@@ -25,21 +25,21 @@ namespace Alex_Andersen.Controllers
         }
 
         // GET: Licenses/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var licenses = await _context.Licenses
-                .FirstOrDefaultAsync(m => m.LicenseID == id);
-            if (licenses == null)
+            var license = await _context.Licenses
+                .FirstOrDefaultAsync(m => m.LicenseId == id);
+            if (license == null)
             {
                 return NotFound();
             }
 
-            return View(licenses);
+            return View(license);
         }
 
         // GET: Licenses/Create
@@ -53,31 +53,31 @@ namespace Alex_Andersen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LicenseID,LicenseName")] Licenses licenses)
+        public async Task<IActionResult> Create([Bind("LicenseId,LicenseName")] License license)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(licenses);
+                _context.Add(license);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(licenses);
+            return View(license);
         }
 
         // GET: Licenses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var licenses = await _context.Licenses.FindAsync(id);
-            if (licenses == null)
+            var license = await _context.Licenses.FindAsync(id);
+            if (license == null)
             {
                 return NotFound();
             }
-            return View(licenses);
+            return View(license);
         }
 
         // POST: Licenses/Edit/5
@@ -85,9 +85,9 @@ namespace Alex_Andersen.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LicenseID,LicenseName")] Licenses licenses)
+        public async Task<IActionResult> Edit(long id, [Bind("LicenseId,LicenseName")] License license)
         {
-            if (id != licenses.LicenseID)
+            if (id != license.LicenseId)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace Alex_Andersen.Controllers
             {
                 try
                 {
-                    _context.Update(licenses);
+                    _context.Update(license);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LicensesExists(licenses.LicenseID))
+                    if (!LicenseExists(license.LicenseId))
                     {
                         return NotFound();
                     }
@@ -112,41 +112,41 @@ namespace Alex_Andersen.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(licenses);
+            return View(license);
         }
 
         // GET: Licenses/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var licenses = await _context.Licenses
-                .FirstOrDefaultAsync(m => m.LicenseID == id);
-            if (licenses == null)
+            var license = await _context.Licenses
+                .FirstOrDefaultAsync(m => m.LicenseId == id);
+            if (license == null)
             {
                 return NotFound();
             }
 
-            return View(licenses);
+            return View(license);
         }
 
         // POST: Licenses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var licenses = await _context.Licenses.FindAsync(id);
-            _context.Licenses.Remove(licenses);
+            var license = await _context.Licenses.FindAsync(id);
+            _context.Licenses.Remove(license);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LicensesExists(int id)
+        private bool LicenseExists(long id)
         {
-            return _context.Licenses.Any(e => e.LicenseID == id);
+            return _context.Licenses.Any(e => e.LicenseId == id);
         }
     }
 }

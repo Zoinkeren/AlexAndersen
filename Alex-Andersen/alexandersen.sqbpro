@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/David/Desktop/AlexAndersenTest/Alex-Andersen/alexandersen.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2639"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,12:mainAvailability"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Roles (
+	RoleID INT IDENTITY(1,1) PRIMARY KEY,
+	RoleName VARCHAR(15)
+);
+
+CREATE TABLE Countries (
+	CountryID INT IDENTITY(1,1) PRIMARY KEY,
+CountryName VARCHAR(200),
+	CountryCode VARCHAR(2),
+	PhoneCode VARCHAR(4)
+);
+
+CREATE TABLE Cities (
+	CityID INT IDENTITY(1,1) PRIMARY KEY,
+	CityName VARCHAR(200),
+	CountryID INT,
+		ZIP INT,
+	FOREIGN KEY (CountryID) REFERENCES Countries(CountryID)
+);
+
+CREATE TABLE TypePreferences (
+	TypePreferenceID INT IDENTITY(1,1) PRIMARY KEY,
+	TypeName VARCHAR(45)
+);
+
+CREATE TABLE Licenses(
+	LicenseID INT IDENTITY(1,1) PRIMARY KEY,
+	LicenseName VARCHAR(100)
+);
+
+
+
+CREATE TABLE Status(
+StatusID INT IDENTITY(1,1) PRIMARY KEY,
+	StatusName VARCHAR(100)   
+);
+
+CREATE TABLE Users (
+	UserID INT IDENTITY(1,1) PRIMARY KEY,
+	UserName VARCHAR(15),
+	UserPassword VARCHAR(255),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	UserEmail VARCHAR(45),
+	UserPhoneNumber INT,
+	RoleID INT,
+	FOREIGN KEY (RoleID)  REFERENCES Roles(RoleID)
+);
+
+CREATE TABLE Messages(
+	MessageID INT IDENTITY(1,1) PRIMARY KEY,
+	MessageTitle VARCHAR(45),
+	MessageDescription TEXT,
+	IsMessageRead BIT
+);
+
+CREATE TABLE User_messages(
+	UserMessagesID INT IDENTITY(1,1) PRIMARY KEY,
+	SenderReciever BIT,
+	UserID INT,
+	MesssageID INT,
+	FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	FOREIGN KEY (MesssageID) REFERENCES Messages(MessageID)
+);
+
+CREATE TABLE Locations (
+LocationID INT IDENTITY(1,1) PRIMARY KEY,
+LocationAddress VARCHAR(255),
+CityID INT,
+FOREIGN KEY (CityID) REFERENCES Cities(CityID)
+);
+
+CREATE TABLE Departments (
+DepartmentID INT IDENTITY(1,1) PRIMARY KEY,
+DepartmentName VARCHAR(200),
+DepartmentAddress VARCHAR(200),
+CityID INT,
+UserID INT,
+FOREIGN KEY (CityID) REFERENCES Cities(CityID),
+FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE Drivers (
+	DriverID  INT IDENTITY(1,1) PRIMARY KEY,
+	Image_file VARCHAR(200),
+	IsDriverActive BIT,
+	DriverResidence VARCHAR(45),
+	UserID INT,
+	CountryID INT,
+	TypePreferenceID INT,
+	CityID INT,
+	FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	FOREIGN KEY (CountryID) REFERENCES Countries(CountryID),
+	FOREIGN KEY (TypePreferenceID) REFERENCES TypePreferences(TypePreferenceID),
+	FOREIGN KEY (CityID) REFERENCES Cities(CityID)
+
+);
+
+CREATE TABLE Drivers_has_licenses(
+	ExpirationDate DATETIME,
+	LicenseID INT,
+	DriverID INT,
+	PRIMARY KEY (LicenseID, DriverID),
+	FOREIGN KEY (LicenseID) REFERENCES Licenses(LicenseID),
+	FOREIGN KEY (DriverID) REFERENCES Drivers(DriverID)
+);
+
+
+CREATE TABLE Trips(
+	TripID INT IDENTITY(1,1) PRIMARY KEY,
+	StartDate DATETIME,
+	EndDate DATETIME,
+		Description TEXT,
+		IsTripExpress BIT,
+		DepartmentID INT,
+		StatusID INT,
+	 FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+	FOREIGN KEY (StatusID) REFERENCES Status(StatusID)
+
+);
+
+
+
+
+CREATE TABLE Trips_locations(
+	TripsLocationsID INT IDENTITY(1,1) PRIMARY KEY,
+	LocationEndpoint BIT,
+	TripID INT,
+	LocationID INT,
+	FOREIGN KEY (TripID) REFERENCES Trips(TripID),
+	FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
+	
+);
+
+CREATE TABLE Trip_has_drivers(
+	DriverID INT,
+	TripID INT,
+	PRIMARY KEY (DriverID, TripID),
+	 FOREIGN KEY (DriverID) REFERENCES Drivers(driverID),
+	FOREIGN KEY (TripID) REFERENCES Trips(TripID)
+
+);
+
+CREATE TABLE TripRequests (
+	DriverID INT,
+	TripID INT,
+	PRIMARY KEY(DriverID, TripID),
+	FOREIGN KEY (DriverID)  REFERENCES Drivers(DriverID),
+	FOREIGN KEY (TripID)  REFERENCES Trips(TripID)
+
+);
+
+CREATE TABLE Availability(
+AvailabilityID INT IDENTITY(1,1) PRIMARY KEY,
+StartDate DATETIME,
+EndDate DATETIME,
+AvailabilityStatus BIT,
+DriverID INT,
+ FOREIGN KEY (DriverID) REFERENCES Drivers(DriverID)
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -1,19 +1,18 @@
-﻿@model Alex_Andersen.Models.Licenses
+﻿@model Alex_Andersen.Models.License
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h1>Edit</h1>
 
-<h4>Licenses</h4>
+<h4>License</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="LicenseID" />
+            <input type="hidden" asp-for="LicenseId" />
             <div class="form-group">
                 <label asp-for="LicenseName" class="control-label"></label>
                 <input asp-for="LicenseName" class="form-control" />
