@@ -1,15 +1,14 @@
-﻿@model Alex_Andersen.Models.Licenses
+﻿@model Alex_Andersen.Models.License
 
 @{
     ViewData["Title"] = "Delete";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Licenses</h4>
+    <h4>License</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,7 +20,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="LicenseID" />
+        <input type="hidden" asp-for="LicenseId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

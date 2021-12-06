@@ -17,12 +17,21 @@
 <body>
     <partial name=../partials/Header.cshtml />
     <main class="wrapper">
+        
         <div>
             @RenderBody()
         </div>
     </main>
     <partial name=../partials/Footer.cshtml />
     <script src="~/js/site.js"></script>
+
+
+    @if (IsSectionDefined("scripts"))
+    {
+        RenderSection("scripts");
+    }
+
     <script src="~/js/expander.js"></script>
+
 </body>
 </html>

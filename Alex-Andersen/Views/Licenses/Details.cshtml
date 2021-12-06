@@ -1,14 +1,13 @@
-﻿@model Alex_Andersen.Models.Licenses
+﻿@model Alex_Andersen.Models.License
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>Licenses</h4>
+    <h4>License</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -20,6 +19,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.LicenseID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.LicenseId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

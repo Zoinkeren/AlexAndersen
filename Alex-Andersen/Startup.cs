@@ -25,10 +25,8 @@ namespace Alex_Andersen
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EFContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("DbCon"))
-             );
             services.AddControllersWithViews();
+            services.AddDbContext<MyDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
