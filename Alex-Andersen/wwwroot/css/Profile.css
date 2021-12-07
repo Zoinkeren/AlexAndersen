@@ -1,26 +1,7 @@
-﻿body {
-}
-
-.roundedBox {
-    border-radius: 10px;
-    height: auto;
-    padding: 2%;
-    margin: 5% 0;
-    background-color: var(--white);
-    filter: drop-shadow(0 1mm 0.5mm #ccc);
-}
-
-
-.descriptionWrapper {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.roundedBoxDescription {
+﻿.roundedBoxDescriptionProfile {
     padding: 2%;
     color: #005140;
 }
-
 .summaryBoxProfile {
     border-radius: 10px;
     width: auto;
@@ -28,74 +9,7 @@
     padding: 4%;
     background-color: var(--lightGrey);
 }
-
-.descriptionIcon {
-    width: 22px;
-    height: 22px;
-    padding: 5px;
-    align-self: center;
-}
-
 /* Kørselshistorik*/
-h4 {
-    display: inline-block;
-}
-
-.Profilposition {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: auto;
-}
-
-.showMore {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-}
-
-.date {
-    grid-column: 1/3;
-    display: block;
-    border: solid 1px var(--mainGreen);
-    border-radius: 10px;
-    padding: 2%;
-    text-align: center;
-}
-
-    .date h6 {
-        font-size: 2rem;
-    }
-
-    .date p {
-        font-size: 1rem;
-        font-weight: 700;
-    }
-
-.tripInfo {
-    grid-column: 3/10;
-    padding: 7% 2%;
-    text-align: left;
-}
-
-    .tripInfo ul li {
-        font-size: 0.8rem;
-        font-weight: 700;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        text-decoration: none;
-        padding: 5px;
-        color: black;
-    }
-
-    .tripInfo ul {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
 
 /* buttons*/
 
@@ -123,14 +37,10 @@ margin: auto;
     font-family: 'Raleway', sans-serif;
     font-weight: normal;
     font-size: 16px;
+    margin-right: 13px;
 }
-.profileLocation {
-    display: flex;
-}
-
 .preference {
 justify-self: end;
-
 }
 
 .LocationIcon {
@@ -156,7 +66,6 @@ height: 18px;
     margin-bottom: 2px;
 }
 
-
 .EditProfile {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -164,20 +73,19 @@ height: 18px;
     margin-top: 6px;
     text-decoration: underline;
     color: black;
-    margin-left: 0px;
+    margin-left: 2px;
+    margin-right: 10px;
 }
 .ProfileIcon{
     margin-right: 10px;
     margin-top: 5px;
 }
 /* Settings Icon*/
-
 .SettingsIcon {
     margin-top: -200px;
-    margin-left: 425px;
+    margin-left: 395px;
     margin-bottom: 40px;
 }
-
 /* Dine Licenser*/
 .ButtonLicenses {
     border: none;
@@ -189,7 +97,7 @@ height: 18px;
     font-size: 16px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 1px 1px;
+    filter: drop-shadow(0 1mm 0.5mm #ccc);
     position: center;
     margin-right: 15px;
     margin-left: 25px;
@@ -199,12 +107,12 @@ height: 18px;
     display: flex;
     flex-wrap: wrap;
     flex: 1 0 21%;
+    margin-top: 10px;
 }
-
 .LicenseSigns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-left: 25px;
+    grid-template-columns: 1fr 2fr;
+    margin-left: 20px;
     margin-right: 0px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
