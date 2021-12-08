@@ -448,8 +448,8 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-bg-event {
     background: rgb(143, 223, 130);
     background: var(--fc-bg-event-color, rgb(143, 223, 130));
-    opacity: 0.3;
-    opacity: var(--fc-bg-event-opacity, 0.3)
+    opacity: 0.8;
+    /*opacity: var(--fc-bg-event-opacity, 0.3)*/
   }
 .fc .fc-bg-event .fc-event-title {
       margin: .5em;
