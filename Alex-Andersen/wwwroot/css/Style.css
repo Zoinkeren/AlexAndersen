@@ -6,6 +6,7 @@
 body {
     background-color: #eee;
     background-color: #F5F5F5;
+    font-family: 'Raleway', sans-serif;
 }
 
 :root {
@@ -157,18 +158,31 @@ header {
 }
 
 #calendar-wrapper {
-    position: relative;
+    
+}
+
+#blackBG {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: rgba(0,0,0,0.8);
+    display:none;
+    z-index:10;
 }
 
 #calendar-wrapper .popup {
-    position: fixed;
+    position: absolute;
     background-color: white;
-    top: 20%;
+    top: 40%;
     transform: translateY(-50%);
     left: 0;
     right: 0;
-    margin: 10%;
     z-index: 10;
+    margin:5%;
+    padding:5%;
     display:none;
 }
 
@@ -248,16 +262,29 @@ button.delete {
     margin: 0 auto;
 }
 
+#calendar table.fc-scrollgrid {
+    height:100%;
+    background-color:white;
+    border:none;
+    border-radius:10px!important;
+    box-sizing:content-box;
+    padding:10px;
+    filter:drop-shadow(0 1mm 0.5mm #ccc);
+    font-size:14px;
+}
+
 #calendar .fc-toolbar {
     flex-wrap:wrap;
 }
 
 #calendar .available {
-    background-color:var(--mainGreen);
+    color:white;
+    background-color: #00904A;
 }
 
 #calendar .unavailable {
-    background-color:var(--mainRed);
+    color:white;
+    background-color: #DC2F34;
 }
 
 .calendar-tooltip {
@@ -266,6 +293,7 @@ button.delete {
     display: flex;
     margin: 0 auto;
     justify-content: space-around;
+    font-size:1.2em;
 }
 
 .calendar-tooltip {
