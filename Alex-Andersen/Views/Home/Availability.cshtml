@@ -10,6 +10,8 @@
             var popup_add = document.getElementById("add-availability");
             var popup_edit = document.getElementById("edit-availability");
             var blackBG = document.getElementById("blackBG");
+            var switchAdd = document.getElementById("switch-for-add");
+            var switchEdit = document.getElementById("switch-for-edit");
 
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -22,7 +24,7 @@
                 longPressDelay: 1,
                 nextDayThreshold: '00:00:00',
                 dayMaxEvents: true, // allow "more" link when too many events
-                eventTextColor:'red',
+                eventTextColor: 'red',
 
                 events: [
                     {
@@ -30,13 +32,15 @@
                         end: '2021-12-15T00:00:00',
                         classNames: ['available', 'cake'],
                         display: 'background',
-                        allDay: true
+                        extendedProps: {fullday: false},
+                        allDay: true //Property to always show on calendar in month gridview
                     },
                     {
                         start: '2021-12-19',
                         end: '2021-12-21',
                         display: 'background',
                         classNames: ['unavailable'],
+                        extendedProps: {fullday: true},
                         allDay: true
                     }
                 ],
@@ -66,7 +70,9 @@
                     }
                     //if event found, load up edit box for that event
                     if (eventFound >= 0) {
-                        document.getElementById("date-start-edit").setAttribute("value", allEvents[eventFound].startStr + "T00:00:00");
+                        var str = allEvents[eventFound].start;
+                        console.log(str);
+                        document.getElementById("date-start-edit").setAttribute("value", allEvents[eventFound].start);
                         document.getElementById("date-end-edit").setAttribute("value", allEvents[eventFound].endStr + "T00:00:00");
                         if (allEvents[eventFound].classNames.includes("available")) {
                             document.getElementById("edit-available").checked = true;
@@ -76,9 +82,11 @@
                         popup_edit.style.display = "block";
                         popup_add.style.display = "none";
                         blackBG.style.display = "block";
-                    } else {
+                    } else { // if no event found, fill out input fields with chosen date
                         document.getElementById("date-start").setAttribute("value", info.dateStr + "T00:00:00");
                         document.getElementById("date-end").setAttribute("value", info.dateStr + "T00:00:00");
+                        document.getElementById("date-start-whole").setAttribute("value", info.dateStr);
+                        document.getElementById("date-end-whole").setAttribute("value", info.dateStr);
                         popup_add.style.display = "block";
                         popup_edit.style.display = "none";
                         blackBG.style.display = "block";
@@ -112,6 +120,27 @@
                 blackBG.style.display = "none";
             });
 
+
+            switchAdd.addEventListener('change', (e) => {
+                if (e.currentTarget.checked) {
+                    document.getElementById('day-timeslots').style.display = 'none';
+                    document.getElementById('whole-day').style.display = 'block';
+                } else {
+                    document.getElementById('whole-day').style.display = 'none';
+                    document.getElementById('day-timeslots').style.display = 'block';
+                }
+            });
+
+            switchEdit.addEventListener('change', (e) => {
+                if (e.currentTarget.checked) {
+                    document.getElementById('day-timeslots-edit').style.display = 'none';
+                    document.getElementById('whole-day-edit').style.display = 'block';
+                } else {
+                    document.getElementById('whole-day-edit').style.display = 'none';
+                    document.getElementById('day-timeslots-edit').style.display = 'block';
+                }
+            });
+
             calendar.render();
         });
 </script>
@@ -132,16 +161,33 @@
                 </label>
             </div>
 
-            <label for="date-start">Fra</label>
-            <input type="datetime-local" id="date-start" name="date-start" /><br />
+            <div class="timeslots">
+                <label for="switch-for-add">Hele dage</label>
+                <label class="switch">
+                    <input type="checkbox" name="switch-for-add" checked="checked" id="switch-for-add" />
+                    <span class="slider"></span>
+                </label>
+            </div>
 
-            <label for="date-end">Til</label>
-            <input type="datetime-local" id="date-end" name="date-end" />
+            <div id="whole-day">
+                <label for="date-start-whole">Fra</label>
+                <input type="date" id="date-start-whole" name="date-start-whole" /><br />
+
+                <label for="date-end-whole">Til</label>
+                <input type="date" id="date-end-whole" name="date-end-whole" />
+            </div>
+
+            <div id="day-timeslots">
+                <label for="date-start">Fra</label>
+                <input type="datetime-local" id="date-start" name="date-start" /><br />
+
+                <label for="date-end">Til</label>
+                <input type="datetime-local" id="date-end" name="date-end" />
+            </div>
             <div class="button-group">
                 <button id="cancel-add" class="cancel">Annuller</button>
                 <button id="save-add" class="save">Tilføj</button>
             </div>
-
         </div>
         <div id="edit-availability" class="roundedBox popup">
             <h3>Rediger periode</h3>
@@ -158,11 +204,28 @@
                 </label>
             </div>
 
-            <label for="date-start-edit">Fra</label>
-            <input type="datetime-local" id="date-start-edit" name="date-start-edit" /><br />
+            <div class="timeslots">
+                <label for="switch-for-edit">Hele dage</label>
+                <label class="switch">
+                    <input type="checkbox" name="switch-for-edit" checked="checked" id="switch-for-edit" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="whole-day-edit">
+                <label for="date-start-edit-whole">Fra</label>
+                <input type="date" id="date-start-edit-whole" name="date-start-edit-whole" /><br />
 
-            <label for="date-end-edit">Til</label>
-            <input type="datetime-local" id="date-end-edit" name="date-end-edit" />
+                <label for="date-end-edit-whole">Til</label>
+                <input type="date" id="date-end-edit-whole" name="date-end-edit-whole" />
+            </div>
+            <div id="day-timeslots-edit">
+                <label for="date-start-edit">Fra</label>
+                <input type="datetime-local" id="date-start-edit" name="date-start-edit" /><br />
+
+                <label for="date-end-edit">Til</label>
+                <input type="datetime-local" id="date-end-edit" name="date-end-edit" />
+            </div>
+
             <div class="button-group">
                 <button id="cancel-edit" class="cancel">Annuller</button>
                 <button id="delete-edit" class="delete">Slet</button>
