@@ -74,4 +74,22 @@ document.querySelectorAll('.popUpClose, .popUpCall').forEach(button => {
     });
 });
 
+//Message POP-UP
+
+document.querySelectorAll('.messageBox').forEach(button => {
+
+    button.addEventListener('click', function () {
+
+       document.querySelector('.popUpMessage').style.display = "block";
+    });
+});
+
+document.querySelectorAll('.popUpClose, .popUpMessage').forEach(button => {
+
+    button.addEventListener('click', function () {
+
+        document.querySelector('.popUpMessage').style.display = "none";
+    });
+});
+
 

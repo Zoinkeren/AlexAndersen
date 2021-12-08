@@ -191,16 +191,18 @@ header {
 }
 
 .accordionButtonWithStatusOverview {
+    text-decoration: none;
+    color: black;
     border-radius: 10px;
     border-style: none;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 4%;
     margin-top: 4%;
     background-color: var(--lightGrey);
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 2fr 10fr 2fr 0fr;
+    grid-template-columns: 2fr 10fr 2fr 0f;
     grid-template-areas:
         "date textA requestStatus downArrow"
         "date textB requestStatus downArrow";
@@ -223,9 +225,11 @@ header {
 }
 
 .accordionButtonOverviewTrips {
+    text-decoration: none;
+    color: black;
     border-radius: 10px;
     border-style: none;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 4%;
     margin-top: 4%;
@@ -353,7 +357,7 @@ header {
 
 /*overlay trips*/
 
-.popUpTripRequest, .popUpCancelTrip, .popUpMail, .popUpCall {
+.popUpTripRequest, .popUpCancelTrip, .popUpMail, .popUpCall, .popUpMessage {
     display: none;
     position: fixed;
     z-index: 999;
@@ -366,7 +370,7 @@ header {
 
 .popUpBox {
     width: 60%;
-    height: 10rem;
+    height: auto;
     background-color: white;
     margin: 0;
     position: absolute;
@@ -374,12 +378,14 @@ header {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 10% 10%;
 }
 
     .popUpBox h4 {
-        margin-bottom: 5%;
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding: 6% 0;
     }
 
 .helpNo {
@@ -412,10 +418,10 @@ header {
     display: grid;
     grid-gap: 5px;
     grid-column-gap: 10px;
-    grid-template-columns: 3fr 1fr 0fr;
+    grid-template-columns: 3fr 0fr;
     grid-template-areas:
-        "messageHeadline requestStatus downArrow"
-        "cities requestStatus downArrow";
+        "messageHeadline requestStatus "
+        "cities requestStatus ";
 }
 
 
