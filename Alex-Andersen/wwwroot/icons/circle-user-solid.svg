@@ -1,1 +1,11 @@
-<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-user" class="svg-inline--fa fa-circle-user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"></path></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#77A198;}
+</style>
+<path class="st0" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,128
+	c39.8,0,72,32.2,72,72s-32.2,72-72,72c-39.8,0-72-32.2-72-72S216.2,128,256,128z M256,448c-52.9,0-100.9-21.5-135.7-56.3
+	C136.5,349.9,176.5,320,224,320h64c47.5,0,87.5,29.9,103.7,71.7C356.9,426.5,308.9,448,256,448z"/>
+</svg>

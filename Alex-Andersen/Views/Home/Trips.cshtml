@@ -1,103 +1,315 @@
 ﻿@{
     ViewData["Title"] = "Trips";
-    ViewData["Headline"] = "Dine Ture";
+    ViewData["Headline"] = "Ture";
 
 }
-<h4>Kommende ture</h4>
-<a class="showMore" href="#">vis mere...</a>
-<div class="roundedBox">
-    <button class="bigButton position">
-        <div class="date">
-            <h6>5</h6>
-            <p>Nov</p>
-        </div>
-        <div class="tripInfo">
-            <ul>
-                <li>Fra:</li>
-                <li>Odense DK</li>
-                <li>Start:</li>
-                <li>12:00</li>
-            </ul>
-            <ul>
-                <li>Til:</li>
-                <li>Greve DK</li>
-                <li>Ankommst:</li>
-                <li>22:00</li>
-            </ul>
 
-        </div>
-    </button>
+
+
+<!--overlay-->
+<div class="popUp helpPopUp">
+    <div class="popUpBox">
+        <h4>Få hjælp til login</h4>
+        <p>Ring til telefon nr.:</p>
+        <p class="helpNo">+45 12 13 14 15</p>
+        <button class="popUpClose">OK</button>
+    </div>
 </div>
-<div class="roundedBox">
-    <button class="bigButton position">
-        <div class="date">
-            <h6>20</h6>
-            <p>Nov</p>
-        </div>
-        <div class="tripInfo">
-            <ul>
-                <li>Fra:</li>
-                <li>Odense DK</li>
-                <li>Start:</li>
-                <li>12:00</li>
-            </ul>
-            <ul>
-                <li>Til:</li>
-                <li>Greve DK</li>
-                <li>Ankommst:</li>
-                <li>22:00</li>
-            </ul>
 
-        </div>
-    </button>
+
+<!--mine kommende ture-->
+<div class="tripsHeadlineWrapper">
+    <h2>Mine ture</h2>
+    <p><a href="#">Vis alle (6)</a></p>
 </div>
-        <h4>Ledige ture</h4>
-        <a class="showMore" href="#">vis mere...</a>
-        <div class="roundedBox">
-            <button class="bigButton position">
-                <div class="date">
-                    <h6>12</h6>
-                    <p>Dez</p>
-                </div>
-                <div class="tripInfo">
-                    <ul>
-                        <li>Fra:</li>
-                        <li>Odense DK</li>
-                        <li>Start:</li>
-                        <li>12:00</li>
-                    </ul>
-                    <ul>
-                        <li>Til:</li>
-                        <li>Greve DK</li>
-                        <li>Ankommst:</li>
-                        <li>22:00</li>
-                    </ul>
 
-                </div>
-            </button>
-        </div>
-            <div class="roundedBox">
-                <button class="bigButton position">
-                    <div class="date">
-                        <h6>23</h6>
-                        <p>Dez</p>
-                    </div>
-                    <div class="tripInfo">
-                        <ul>
-                            <li>Fra:</li>
-                            <li>Odense DK</li>
-                            <li>Start:</li>
-                            <li>12:00</li>
-                        </ul>
-                        <ul>
-                            <li>Til:</li>
-                            <li>Greve DK</li>
-                            <li>Ankommst:</li>
-                            <li>22:00</li>
-                        </ul>
-
-                    </div>
-                </button>
-               
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
             </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
 
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>
+
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>
+
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>
+
+<hr />
+
+<!--Ledige ture-->
+<div class="tripsHeadlineWrapper">
+    <h2>Ledige ture </h2>
+    <p><a href="#">Vis alle (6)</a></p>
+</div>
+
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>
+
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>
+
+
+<div class="accordion">
+    <button type="button" class="accordionButtonTrips">
+        <div class="gridItemDate">
+            <div class="itemDateDay">
+                <p class="itemDateDescription">5.</p>
+            </div>
+            <div class="itemDateMonth">
+                <p class="itemDateDescription">Nov</p>
+            </div>
+        </div>
+        <div class="gridItemTextA">
+            <p>Odense - Greve</p>
+        </div>
+
+        <div class="gridItemDownArrow">
+            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+        </div>
+        <div class="gridItemTextB">
+            <p>12:00 - 22:00</p>
+        </div>
+    </button>
+
+    <div class="expanderContent">
+        <div class="tripInformation">
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Fra:</li>
+                <li class="tripInformationListeditem">Til:</li>
+            </ul>
+            <ul class="tripInformationList">
+                <li class="tripInformationListeditem">Kontaktperson:</li>
+                <li class="tripInformationListeditem">Afdeling:</li>
+            </ul>
+        </div>
+        <div class="tripCallandMailbutton">
+            <div class="tripCall">
+                <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                <p>Ring</p>
+            </div>
+            <div class="tripMail">
+                <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                <p>Mail</p>
+            </div>
+        </div>
+        <button class="registrerTripButton" type="submit">Anmod om tur</button>
+    </div>
+</div>

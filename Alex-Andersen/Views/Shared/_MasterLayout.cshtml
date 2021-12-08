@@ -12,18 +12,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/fullcalendar/main.css">
     <script src="~/lib/fullcalendar/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+    <partial name=../partials/Header.cshtml />
     <main class="wrapper">
-        <h1>@ViewData["Headline"]</h1>
-        <h3>@ViewData["Description"]</h3>
+        
         <div>
             @RenderBody()
         </div>
     </main>
+    <partial name=../partials/Footer.cshtml />
+    <script src="~/js/site.js"></script>
 
-    <footer>
-        <partial name=../partials/Nav.cshtml />
-    </footer>
+
+    @if (IsSectionDefined("scripts"))
+    {
+        RenderSection("scripts");
+    }
+
+    <script src="~/js/expander.js"></script>
+
 </body>
 </html>
