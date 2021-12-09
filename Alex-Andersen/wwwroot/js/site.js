@@ -92,4 +92,33 @@ document.querySelectorAll('.popUpClose, .popUpMessage').forEach(button => {
     });
 });
 
+/*document.querySelectorAll('.NavButton').forEach(button => {
+
+    button.addEventListener('click', function () {
+
+        document.querySelector('.NavButton').style.backgroundColor = "red";
+        
+    });
+});*/
+
+if (document.URL.indexOf("Index") >= 0) {
+    document.querySelector(".NavButtonIndex").style.backgroundColor = "#e8f2e7";
+
+}
+
+if (document.URL.indexOf("Trips") >= 0) {
+    document.querySelector(".NavButtonTrips").style.backgroundColor = "#e8f2e7";
+}
+
+if (document.URL.indexOf("Availability") >= 0) {
+    document.querySelector(".NavButtonAvailability").style.backgroundColor = "#e8f2e7";
+}
+
+if (document.URL.indexOf("Messages") >= 0) {
+    document.querySelector(".NavButtonMessages").style.backgroundColor = "#e8f2e7";
+}
+
+if (document.URL.indexOf("Profile") >= 0) {
+    document.querySelector(".NavButtonProfile").style.backgroundColor = "#e8f2e7";
+}
 

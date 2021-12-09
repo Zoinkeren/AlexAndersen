@@ -85,7 +85,7 @@ header {
     width: 100%;
 }
 
-.NavButton {
+.NavButtonIndex, .NavButtonTrips, .NavButtonAvailability, .NavButtonMessages, .NavButtonProfile {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -288,10 +288,6 @@ header {
    padding: 0 4%
  }
 
-.tripInformation{
-   
-}
-
 .tripInformationList{
     list-style: none;
     padding: 2% 0;
@@ -310,22 +306,13 @@ header {
     padding: 5% 0;
 }
 
-.tripCall {
+.tripCall, .tripMail {
     background-color: transparent;
     border-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 10%;
-}
-
-.tripMail {
-    background-color: transparent;
-    border-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-right: 10%;
 }
 
 .cancelTripButton {

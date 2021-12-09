@@ -34,9 +34,28 @@
             </div>
         </button>
 
-    <div class="expanderContent">
-        <p>expanded content</p>
-    </div>
+        <div class="expanderContent">
+            <div class="tripInformation">
+                <ul class="tripInformationList">
+                    <li class="tripInformationListeditem">Fra:</li>
+                    <li class="tripInformationListeditem">Til:</li>
+                </ul>
+                <ul class="tripInformationList">
+                    <li class="tripInformationListeditem">Kontaktperson:</li>
+                    <li class="tripInformationListeditem">Afdeling:</li>
+                </ul>
+            </div>
+            <div class="tripCallandMailbutton">
+                <button class="tripCall">
+                    <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                    <p>Ring</p>
+                </button>
+                <button class="tripMail">
+                    <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                    <p>Mail</p>
+                </button>
+            </div>
+        </div>
 </div>
 
 
@@ -46,7 +65,7 @@
         <img class="descriptionIcon" src="~/icons/comments-solid.svg" />
         <h3 class="accordionDescription ">Dine anmodninger</h3>
     </div>
-    <a href="Home/Messages" type="button" class="accordionButtonWithStatusOverview">
+    <a href="Messages" type="button" class="accordionButtonWithStatusOverview">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
@@ -77,7 +96,7 @@
         <img class="descriptionIcon" src="~/icons/tasks-solid.svg" />
         <h3 class="accordionDescription ">Mine ture</h3>
     </div>
-    <a href="Home/Trips" type="button" class="accordionButtonOverviewTrips">
+    <a href="Trips" type="button" class="accordionButtonOverviewTrips">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
@@ -98,7 +117,7 @@
         </div>
     </a>
 
-    <a href="Home/Trips" type="button" class="accordionButtonOverviewTrips">
+    <a href="Trips" type="button" class="accordionButtonOverviewTrips">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
