@@ -73,7 +73,7 @@
                     if (eventFound >= 0) {
                         FillEditPopup(eventFound);
                     } else {
-                        FillAddPopup(info.start, info.end);
+                        FillAddPopup(info.startStr, info.endStr);
                     }
 
                 }, //select function end
@@ -105,7 +105,7 @@
 
             });
 
-            //Cancel/Delete/Save clicks in pop ups
+            //Cancel/Delete/Save button-clicks in popups
             //ADD popup
             document.getElementById("cancel-add").addEventListener("click", function () {
                 popup_add.style.display = "none";
