@@ -342,6 +342,7 @@ header {
     cursor: pointer;
 }
 
+
 /*overlay trips*/
 
 .popUpTripRequest, .popUpCancelTrip, .popUpMail, .popUpCall, .popUpMessage {
@@ -491,3 +492,108 @@ h4 {
         flex-direction: row;
         justify-content: space-around;
     }
+
+
+/*////////////////////////
+    Settings
+////////////////////////*/
+
+
+
+.notifacionsH {
+    padding: 2% 0;
+    font-size: 1.3rem;
+}
+
+
+.notficationsOnOff {
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 3fr 0f;
+    grid-template-areas:
+        "p switch";
+}
+
+.logOutButton {
+    width: 100%;
+    background-color: var(--mainRed);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--white);
+    cursor: pointer;
+   
+    position: absolute;
+    bottom: -5%;
+}
+
+
+/*slider on notifications*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 5%;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin-bottom: 5%;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;    
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+.signupCheckedSlider:checked + .slider {
+    background-color: var(--mainGreen);
+}
+
+.signupCheckedSlider:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.signupCheckedSlider:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
