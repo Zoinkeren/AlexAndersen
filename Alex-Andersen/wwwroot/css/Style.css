@@ -170,7 +170,7 @@ header {
     display: block;
     background-color: rgba(0,0,0,0.8);
     display:none;
-    z-index:10;
+    z-index:9;
 }
 
 #calendar-wrapper .popup {
@@ -235,6 +235,10 @@ header {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+}
+
+#calendar-wrapper #id-edit-event {
+    display:none;
 }
 
 #calendar-wrapper input:checked + .slider {
@@ -326,11 +330,12 @@ button.delete {
 }
 
 #calendar table.fc-scrollgrid {
-    height:100%;
+    max-height:101%;
+    height:101%;
     background-color:white;
     border:none;
     border-radius:10px!important;
-    box-sizing:content-box;
+    box-sizing:border-box;
     padding:10px;
     filter:drop-shadow(0 1mm 0.5mm #ccc);
     font-size:14px;
