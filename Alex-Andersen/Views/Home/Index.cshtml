@@ -12,30 +12,50 @@
         <img class="descriptionIcon" src="~/icons/road-solid.svg" />
         <h3 class="accordionDescription ">Din igangværende tur</h3>
     </div>
-    <button type="button" class="accordionButtonOverview">
-        <div class="gridItemDate">
-            <div class="itemDateDay">
-                <p class="itemDateDescription">5.</p>
+    
+        <button type="button" class="accordionButtonOverview">
+            <div class="gridItemDate">
+                <div class="itemDateDay">
+                    <p class="itemDateDescription">5.</p>
+                </div>
+                <div class="itemDateMonth">
+                    <p class="itemDateDescription">Nov</p>
+                </div>
             </div>
-            <div class="itemDateMonth">
-                <p class="itemDateDescription">Nov</p>
+            <div class="gridItemTextA">
+                <p>Odense - Greve</p>
+            </div>
+
+            <div class="gridItemDownArrow">
+                <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
+            </div>
+            <div class="gridItemTextB">
+                <p>12:00 - 22:00</p>
+            </div>
+        </button>
+
+        <div class="expanderContent">
+            <div class="tripInformation">
+                <ul class="tripInformationList">
+                    <li class="tripInformationListeditem">Fra:</li>
+                    <li class="tripInformationListeditem">Til:</li>
+                </ul>
+                <ul class="tripInformationList">
+                    <li class="tripInformationListeditem">Kontaktperson:</li>
+                    <li class="tripInformationListeditem">Afdeling:</li>
+                </ul>
+            </div>
+            <div class="tripCallandMailbutton">
+                <button class="tripCall">
+                    <img class="NavIcon" src="~/icons/phone-alt-solid.svg" alt="phone" />
+                    <p>Ring</p>
+                </button>
+                <button class="tripMail">
+                    <img class="NavIcon" src="~/icons/envelope-solid.svg" alt="email" />
+                    <p>Mail</p>
+                </button>
             </div>
         </div>
-        <div class="gridItemTextA">
-            <p>Odense - Greve</p>
-        </div>
-
-        <div class="gridItemDownArrow">
-            <img class="descriptionIcon" src="~/icons/chevron-down-solid.svg" alt="dropDownArrow" />
-        </div>
-        <div class="gridItemTextB">
-            <p>12:00 - 22:00</p>
-        </div>
-    </button>
-
-    <div class="expanderContent">
-        <p>expanded content</p>
-    </div>
 </div>
 
 
@@ -45,7 +65,7 @@
         <img class="descriptionIcon" src="~/icons/comments-solid.svg" />
         <h3 class="accordionDescription ">Dine anmodninger</h3>
     </div>
-    <button type="button" class="accordionButtonWithStatusOverview">
+    <a href="Messages" type="button" class="accordionButtonWithStatusOverview">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
@@ -66,7 +86,7 @@
         <div class="gridItemTextB">
             <p>12:00 - 22:00</p>
         </div>
-    </button>
+    </a>
 </div>
 
 
@@ -74,9 +94,9 @@
 <div class="accordion">
     <div class="descriptionWrapper">
         <img class="descriptionIcon" src="~/icons/tasks-solid.svg" />
-        <h3 class="accordionDescription ">Dine kommende ture</h3>
+        <h3 class="accordionDescription ">Mine ture</h3>
     </div>
-    <button type="button" class="accordionButtonOverview">
+    <a href="Trips" type="button" class="accordionButtonOverviewTrips">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
@@ -95,9 +115,9 @@
         <div class="gridItemTextB">
             <p>12:00 - 22:00</p>
         </div>
-    </button>
+    </a>
 
-    <button type="button" class="accordionButtonOverview">
+    <a href="Trips" type="button" class="accordionButtonOverviewTrips">
         <div class="gridItemDate">
             <div class="itemDateDay">
                 <p class="itemDateDescription">5.</p>
@@ -116,5 +136,5 @@
         <div class="gridItemTextB">
             <p>12:00 - 22:00</p>
         </div>
-    </button>
+    </a>
 </div>
