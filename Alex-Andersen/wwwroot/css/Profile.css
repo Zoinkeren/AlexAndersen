@@ -1,0 +1,128 @@
+﻿.roundedBoxDescriptionProfile {
+    padding: 2%;
+    color: #005140;
+}
+.summaryBoxProfile {
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    padding: 4%;
+    background-color: var(--lightGrey);
+}
+/* Kørselshistorik*/
+
+/* buttons*/
+
+.bigButtonProfil {
+    border-radius: 10px;
+    width: 100%;
+    padding: 4%;
+    border: none;
+}
+/*Location grid*/
+
+.Profile-Grid-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 1em;
+width: 70vw;
+margin: auto;
+}
+.Profile-Grid-item {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.Profile-Grid-item-sub {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    margin-right: 13px;
+    align-items: center;
+
+}
+.preference {
+    justify-self: end;
+
+}
+
+
+.LocationIcon {
+width: 18px;
+height: 18px;
+}
+
+.ProfileWrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 16px;
+    width: 80%;
+    margin-left: 10px;
+    
+}
+.ProfileText {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    color:#005140; 
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+.EditProfile {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 6px;
+    text-decoration: underline;
+    color: black;
+    margin-left: 2px;
+    margin-right: 10px;
+}
+.ProfileIcon{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+/* Settings Icon*/
+.SettingsIcon {
+    margin-top: -30vh;
+    margin-left: 92vw;
+    margin-bottom: 5vh;
+}
+/* Dine Licenser*/
+.ButtonLicenses {
+    border: none;
+    color: black;
+    background-color: white;
+    padding: 8px 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    filter: drop-shadow(0 1mm 0.5mm #ccc);
+    position: center;
+    margin-right: 15px;
+    margin-left: 25px;
+    margin-bottom: 4px;
+    width: 6rem;
+}
+.ButtonLicensesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 21%;
+    margin-top: 10px;
+    justify-content:center;
+}
+.LicenseSigns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-left: 20px;
+    margin-right: 0px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
