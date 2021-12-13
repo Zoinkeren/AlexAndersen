@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace Alex_Andersen.Models
 {
-    public class Status
+    public partial class Status
     {
-        [Key]
-        public int StatusID { get; set; }
+        public Status()
+        {
+            Trips = new HashSet<Trip>();
+        }
+
+        public long StatusId { get; set; }
         public string StatusName { get; set; }
+
+        public virtual ICollection<Trip> Trips { get; set; }
     }
 }

@@ -22,6 +22,17 @@ body {
     --darkgreen: #005140;
 }
 
+p {
+   font-family: 'Asap', sans-serif;
+   font-size: 1.2rem;
+}
+
+hr{ 
+    margin: 10% 0;
+    border-block-color: var(--mainGreenShade)
+}
+
+
 /*Header*/
 
 header {
@@ -52,6 +63,7 @@ header {
 .NavigationMenu {
     width: 100%;
     border-top: solid #005140 0.5px;
+    background-color: var(--white);
     height: auto;
     position: fixed;
     bottom: 0;
@@ -73,7 +85,7 @@ header {
     width: 100%;
 }
 
-.NavButton {
+.NavButtonIndex, .NavButtonTrips, .NavButtonAvailability, .NavButtonMessages, .NavButtonProfile {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -92,33 +104,324 @@ header {
 
 /*boxes*/
 
-.roundedBox {
+.accordion{
     border-radius: 10px;
     height: auto;
     padding: 2%;
     margin: 5% 0;
     background-color: var(--white);
     filter: drop-shadow(0 1mm 0.5mm #ccc);
+    display: block;
 }
 
+    .accordion:last-child{
+        margin-bottom: 30%;
+    }
 
-.descriptionWrapper{
-    display: flex;
-    justify-content: flex-start;
-}
+    .descriptionWrapper {
+        display: flex;
+        justify-content: flex-start;
+    }
 
-.roundedBoxDescription {
+.accordionDescription {
     padding: 2%;
     color: var(--blackText);
 }
 
-.summaryBox {
+/*grid items*/
+.gridItemDate {
+    grid-area: date;
+    background-color: var(--white);
+    border-radius: 10px;
+    height: 75px;
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.itemDateDescription{
+    padding: 1%;
+    text-align: center;
+    color: var(--darkgreen);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.gridItemTextA {
+    grid-area: textA;
+    align-self: center;
+    justify-self: start
+}
+
+.gridItemTextB {
+    grid-area: textB;
+    align-self: center;
+    justify-self: start
+}
+
+.gridItemRequestStatus {
+    grid-area: requestStatus;
+    align-self: center;
+    justify-self: end;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+.gridItemDownArrow {
+    grid-area: downArrow;
+    align-self: center;
+    justify-self: end;
+    
+}
+
+
+.gridItemMessageHeadline{
+    grid-area: messageHeadline;
+    align-self: center;
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+
+.gridItemCities{
+    grid-area: cities;
+    align-self: center;
+}
+
+.accordionButtonWithStatusOverview {
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border-style: none;
+    width: auto;
+    height: auto;
+    padding: 4%;
+    margin-top: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 2fr 0f;
+    grid-template-areas:
+        "date textA requestStatus downArrow"
+        "date textB requestStatus downArrow";
+}
+
+.accordionButtonOverview {
+    border-radius: 10px;
+    border-style: none;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+    margin-top: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-areas:
+        "date textA downArrow"
+        "date textB downArrow";
+}
+
+.accordionButtonOverviewTrips {
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border-style: none;
+    width: auto;
+    height: auto;
+    padding: 4%;
+    margin-top: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-areas:
+        "date textA downArrow"
+        "date textB downArrow";
+}
+
+
+.accordionButtonTrips {
+    border-radius: 10px;
+    border-style: none;
+    width: 100%;
+    height: auto;
+    padding: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-areas:
+        "date textA downArrow"
+        "date textB downArrow";
+}
+
+/*expander*/
+
+.expanderButton{
+    border: none;
+    outline: none;
+    display: block;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.expanderButton--active {
+    border: none;
+    outline: none;
+    display: block;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 100%;
+}
+.expanderContent{
+   overflow: hidden;
+   max-height: 0;
+   border-radius: 0 0 10px 10px;
+   width: auto;
+   height: auto;
+   transition: max-height 0.2s;
+   background-color: var(--lightGrey);
+   padding: 0 4%
+ }
+
+.tripInformationList{
+    list-style: none;
+    padding: 2% 0;
+ 
+}
+
+.tripInformationListeditem{
+    padding: 1% 0;
+    font-weight: 700;
+}
+
+.tripCallandMailbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5% 0;
+}
+
+.tripCall{
+    background-color: transparent;
+    border-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10%;
+}
+
+ .tripMail {
+    background-color: transparent;
+    border-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10%;
+}
+
+
+.cancelTripButton {
+    width: 100%;
+    background-color: var(--mainRed);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+    cursor: pointer
+}
+
+
+.registrerTripButton {
+    width: 100%;
+    background-color: var(--mainGreen);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+
+/*overlay trips*/
+
+.popUpTripRequest, .popUpCancelTrip, .popUpMail, .popUpCall, .popUpMessage {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+}
+
+.popUpBox {
+    width: 60%;
+    height: auto;
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    padding: 10% 10%;
+}
+
+    .popUpBox h4 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding: 6% 0;
+    }
+
+.helpNo {
+    display: inline-block;
+    color: var(--mainGreen);
+    border-bottom: 1px solid var(--mainGreen);
+}
+
+.popUpBox button {
+    padding: 5%;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--mainGreen);
+    float: right;
+    margin-top: 5%;
+    border-radius: 5px;
+}
+
+
+
+
+/*Messages*/
+.messageBox {
     border-radius: 10px;
     width: auto;
     height: auto;
     padding: 4%;
-    background-color: var(--lightGrey);
+    display: grid;
+    grid-gap: 5px;
+    grid-column-gap: 10px;
+    grid-template-columns: 3fr 0fr;
+    grid-template-areas:
+        "messageHeadline requestStatus "
+        "cities requestStatus ";
 }
+
 
 .descriptionIcon {
     width: 22px;
@@ -127,6 +430,14 @@ header {
     align-self: center;
 }
 
+/*Trips*/
+
+.tripsHeadlineWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:baseline;
+}
 
 
 /*////////////////////////
@@ -191,3 +502,108 @@ h4 {
         flex-direction: row;
         justify-content: space-around;
     }
+
+
+/*////////////////////////
+    Settings
+////////////////////////*/
+
+
+
+.notifacionsH {
+    padding: 2% 0;
+    font-size: 1.3rem;
+}
+
+
+.notficationsOnOff {
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 3fr 0f;
+    grid-template-areas:
+        "p switch";
+}
+
+.logOutButton {
+    width: 100%;
+    background-color: var(--mainRed);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--white);
+    cursor: pointer;
+   
+    position: absolute;
+    bottom: -5%;
+}
+
+
+/*slider on notifications*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 5%;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin-bottom: 5%;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;    
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+.signupCheckedSlider:checked + .slider {
+    background-color: var(--mainGreen);
+}
+
+.signupCheckedSlider:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.signupCheckedSlider:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
