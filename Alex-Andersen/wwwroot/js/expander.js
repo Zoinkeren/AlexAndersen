@@ -3,11 +3,6 @@ document.querySelectorAll('.accordionButtonTrips, .accordionButtonOverview').for
     button.addEventListener('click', function() {
 
         const expander_Content = button.nextElementSibling;
-        const accordionButtonTrips = document.querySelector('.accordionButtonTrips');
-        const accordionButtonOverview = document.querySelector('.accordionButtonOverview');
-    
-
-
 
         button.classList.toggle('accordionButton--active');
 

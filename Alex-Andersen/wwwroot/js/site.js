@@ -103,7 +103,6 @@ document.querySelectorAll('.popUpClose, .popUpMessage').forEach(button => {
 
 if (document.URL.indexOf("Index") >= 0) {
     document.querySelector(".NavButtonIndex").style.backgroundColor = "#e8f2e7";
-
 }
 
 if (document.URL.indexOf("Trips") >= 0) {
