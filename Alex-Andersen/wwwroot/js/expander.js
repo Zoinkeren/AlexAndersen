@@ -4,6 +4,7 @@ document.querySelectorAll('.accordionButtonTrips, .accordionButtonOverview').for
 
         const expander_Content = button.nextElementSibling;
         const accordionButtonTrips = document.querySelector('.accordionButtonTrips');
+        const accordionButtonOverview = document.querySelector('.accordionButtonOverview');
     
 
 
@@ -12,13 +13,10 @@ document.querySelectorAll('.accordionButtonTrips, .accordionButtonOverview').for
 
         if (button.classList.contains('accordionButton--active')) {
             expander_Content.style.maxHeight = expander_Content.scrollHeight + 'px';
-            accordionButtonTrips.style.borderRadius = "10px 10px 0 0";
-
         } else {
             expander_Content.style.maxHeight = 0;
-            accordionButtonTrips.style.borderRadius = null;
-            accordionButtonOverview.style.borderRadius = null;
         }
+
 
 
         //arrow up and down motion
