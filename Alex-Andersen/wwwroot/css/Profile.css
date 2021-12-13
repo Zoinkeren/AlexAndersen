@@ -25,7 +25,7 @@
 display: grid;
 grid-template-columns: 1fr 1fr;
 padding: 1em;
-width: 65%;
+width: 70vw;
 margin: auto;
 }
 .Profile-Grid-item {
@@ -38,10 +38,14 @@ margin: auto;
     font-weight: normal;
     font-size: 16px;
     margin-right: 13px;
+    align-items: center;
+
 }
 .preference {
-justify-self: end;
+    justify-self: end;
+
 }
+
 
 .LocationIcon {
 width: 18px;
@@ -82,9 +86,9 @@ height: 18px;
 }
 /* Settings Icon*/
 .SettingsIcon {
-    margin-top: -200px;
-    margin-left: 395px;
-    margin-bottom: 40px;
+    margin-top: -30vh;
+    margin-left: 92vw;
+    margin-bottom: 5vh;
 }
 /* Dine Licenser*/
 .ButtonLicenses {
@@ -102,12 +106,14 @@ height: 18px;
     margin-right: 15px;
     margin-left: 25px;
     margin-bottom: 4px;
+    width: 6rem;
 }
 .ButtonLicensesWrapper {
     display: flex;
     flex-wrap: wrap;
     flex: 1 0 21%;
     margin-top: 10px;
+    justify-content:center;
 }
 .LicenseSigns {
     display: grid;
