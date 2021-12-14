@@ -9,10 +9,7 @@
     padding: 4%;
     background-color: var(--lightGrey);
 }
-/* Kørselshistorik*/
-
 /* buttons*/
-
 .bigButtonProfil {
     border-radius: 10px;
     width: 100%;
@@ -20,7 +17,6 @@
     border: none;
 }
 /*Location grid*/
-
 .Profile-Grid-container {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -45,13 +41,10 @@ margin: auto;
     justify-self: end;
 
 }
-
-
 .LocationIcon {
 width: 18px;
 height: 18px;
 }
-
 .ProfileWrapper {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -69,7 +62,6 @@ height: 18px;
     margin-left: 10px;
     margin-bottom: 2px;
 }
-
 .EditProfile {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
