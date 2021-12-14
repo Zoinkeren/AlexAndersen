@@ -26,6 +26,7 @@ namespace Alex_Andersen
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
             services.AddDbContext<MyDbContext>();
         }
 
