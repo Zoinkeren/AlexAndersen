@@ -85,7 +85,7 @@ header {
     width: 100%;
 }
 
-.NavButton {
+.NavButtonIndex, .NavButtonTrips, .NavButtonAvailability, .NavButtonMessages, .NavButtonProfile {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -433,16 +433,18 @@ button.delete {
 }
 
 .accordionButtonWithStatusOverview {
+    text-decoration: none;
+    color: black;
     border-radius: 10px;
     border-style: none;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 4%;
     margin-top: 4%;
     background-color: var(--lightGrey);
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 2fr 10fr 2fr 0fr;
+    grid-template-columns: 2fr 10fr 2fr 0f;
     grid-template-areas:
         "date textA requestStatus downArrow"
         "date textB requestStatus downArrow";
@@ -463,6 +465,25 @@ button.delete {
         "date textA downArrow"
         "date textB downArrow";
 }
+
+.accordionButtonOverviewTrips {
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border-style: none;
+    width: auto;
+    height: auto;
+    padding: 4%;
+    margin-top: 4%;
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-areas:
+        "date textA downArrow"
+        "date textB downArrow";
+}
+
 
 .accordionButtonTrips {
     border-radius: 10px;
@@ -509,10 +530,6 @@ button.delete {
    padding: 0 4%
  }
 
-.tripInformation{
-   
-}
-
 .tripInformationList{
     list-style: none;
     padding: 2% 0;
@@ -531,21 +548,26 @@ button.delete {
     padding: 5% 0;
 }
 
-.tripCall {
+.tripCall{
+    background-color: transparent;
+    border-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 10%;
 }
 
-.tripMail {
+ .tripMail {
+    background-color: transparent;
+    border-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-right: 10%;
 }
 
-.deregistrerTripButton {
+
+.cancelTripButton {
     width: 100%;
     background-color: var(--mainRed);
     border-style: none;
@@ -572,9 +594,10 @@ button.delete {
     cursor: pointer;
 }
 
+
 /*overlay trips*/
 
-.popUp {
+.popUpTripRequest, .popUpCancelTrip, .popUpMail, .popUpCall, .popUpMessage {
     display: none;
     position: fixed;
     z-index: 999;
@@ -587,7 +610,7 @@ button.delete {
 
 .popUpBox {
     width: 60%;
-    height: 10rem;
+    height: auto;
     background-color: white;
     margin: 0;
     position: absolute;
@@ -595,12 +618,14 @@ button.delete {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    padding: 5% 10%;
+    font-size: 1.2rem;
+    padding: 10% 10%;
 }
 
     .popUpBox h4 {
-        margin-bottom: 5%;
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding: 6% 0;
     }
 
 .helpNo {
@@ -633,10 +658,10 @@ button.delete {
     display: grid;
     grid-gap: 5px;
     grid-column-gap: 10px;
-    grid-template-columns: 3fr 1fr 0fr;
+    grid-template-columns: 3fr 0fr;
     grid-template-areas:
-        "messageHeadline requestStatus downArrow"
-        "cities requestStatus downArrow";
+        "messageHeadline requestStatus "
+        "cities requestStatus ";
 }
 
 
@@ -719,3 +744,108 @@ h4 {
         flex-direction: row;
         justify-content: space-around;
     }
+
+
+/*////////////////////////
+    Settings
+////////////////////////*/
+
+
+
+.notifacionsH {
+    padding: 2% 0;
+    font-size: 1.3rem;
+}
+
+
+.notficationsOnOff {
+    background-color: var(--lightGrey);
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 3fr 0f;
+    grid-template-areas:
+        "p switch";
+}
+
+.logOutButton {
+    width: 100%;
+    background-color: var(--mainRed);
+    border-style: none;
+    border-radius: 10px;
+    height: 45px;
+    margin: 5% 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--white);
+    cursor: pointer;
+   
+    position: absolute;
+    bottom: -5%;
+}
+
+
+/*slider on notifications*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 5%;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin-bottom: 5%;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;    
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+.signupCheckedSlider:checked + .slider {
+    background-color: var(--mainGreen);
+}
+
+.signupCheckedSlider:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.signupCheckedSlider:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
