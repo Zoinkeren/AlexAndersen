@@ -202,7 +202,7 @@ header {
     background-color: var(--lightGrey);
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 2fr 10fr 2fr 0f;
+    grid-template-columns: 2fr 10fr 2fr;
     grid-template-areas:
         "date textA requestStatus downArrow"
         "date textB requestStatus downArrow";
