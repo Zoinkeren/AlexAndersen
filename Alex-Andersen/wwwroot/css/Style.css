@@ -315,7 +315,7 @@ header {
     padding-left: 10%;
 }
 
- .tripMail {
+.tripMail {
     background-color: transparent;
     border-style: none;
     display: flex;
@@ -323,7 +323,6 @@ header {
     align-items: center;
     padding-right: 10%;
 }
-
 
 .cancelTripButton {
     width: 100%;

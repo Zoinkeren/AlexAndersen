@@ -1,0 +1,32 @@
+﻿@model Alex_Andersen.Models.User
+
+@{
+    Layout = "../Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Login fejlede";
+}
+
+<h1>Login fejlede</h1>
+<h2>Prøv igen</h2>
+   
+<dl class="row">
+
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.UserName)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.UserName)
+       </dd>
+
+
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.UserPassword)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.UserPassword)
+       </dd>
+   
+   </dl>
+
+<div class="backToLogin">
+    <a asp-action="Index">Tilbage</a>
+</div>

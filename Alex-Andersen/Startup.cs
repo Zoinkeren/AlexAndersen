@@ -26,6 +26,7 @@ namespace Alex_Andersen
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
             services.AddDbContext<MyDbContext>();
         }
 
@@ -53,7 +54,7 @@ namespace Alex_Andersen
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

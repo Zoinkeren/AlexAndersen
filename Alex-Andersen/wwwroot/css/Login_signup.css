@@ -22,355 +22,107 @@ body {
     --darkGreen: #005140;
 }
 
+
 .wrapper {
     width: 100vw;
     height: auto;
-    padding: 10%;
+    padding: 2% 15% 2%;
+}
+
+form{
+}
+
+img {
+    display: block;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15% 0;
 }
 
 
-/*navigation(partial)
-    nav knapperne skal fylde lige meget!!!
-*/
-
-.NavigationMenu {
-    width: 100%;
-    border-top: solid #005140 0.5px;
-    height: auto;
-    position: fixed;
-    bottom: 0;
+.form-group{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    padding: 5% 0;
 }
 
-.NavigationMenuList{
-    width: 100%;
+.form-group-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    padding-top: 20%;
+    justify-content: space-between;
+    align-self: flex-end;
 }
 
-.NavigationMenuListItem {
-    justify-content: space-around;
-    text-align: center;
-    list-style: none;
+label {
+    font-weight: 900;
+    padding: 1% 0;
+    font-size: 1.3rem;
 }
 
-.NavButton{
-    align-items: center;
-    display: flex;
-    flex-direction:column;
-    justify-content: space-around;
-    text-decoration: none;
-    padding: 5px;
-    color: black;   
-}
-
-.NavIcon{
-    width: 32px;
-    height: 32px;
-    padding: 10px;
-    fill: var(--brightGreen);
-    }
-
-.roundedBox {
-    border-radius: 10px;
+input{
+    border-radius: 4px;
     padding: 2%;
-    margin: 5% 0;
-    background-color: lightgrey;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
-.bigButton {
-
-    border-radius: 10px;
-    width: 100%;
-    padding: 4%;
-}
-
-/*/////////////////////////////
-    SIGN IN & SIGN UP
-/////////////////////////////*/
-.loginButton {
-    margin-top: 5%;
-}
-
-.bigLogo {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 30%;
-}
-
-.smallButton {
-    padding: 3% 7%;
+#Button {
     border-radius: 5px;
-    border: none;
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-}
-
-.newUserButton {
-    background-color: var(--darkGreen);
-}
-
-.helpButton {
-    background-color: #FFFFFF;
-    float: right; /*fix next time*/
-    margin-top: -10px;
-    color: black;
-    font-weight: 600;
-}
-
-.popUp {
-    display:none;
-    position: fixed;
-    z-index: 999;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    top: 0;
-    left: 0;
-}
-
-.popUpBox {
-    width: 60%;
-    height: 10rem;
-    background-color: white;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    padding:5% 10%;
-}
-.popUpBox h4{
-    margin-bottom:5%;
-}
-.helpNo {
-    display:inline-block;
-    color: var(--mainGreen);
-    border-bottom: 1px solid var(--mainGreen);
-}
-.popUpBox button {
-    padding: 5%;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: 600;
+    padding: 3%;
+    font-size: 1.3rem;
+    background-color: var(--mainGreen);
     color: white;
-    background-color: var(--mainGreen);
-    float:right;
-    margin-top:5%;
-    border-radius:5px;
 }
 
-
-
-
-
-.signUpForm {
-    height: 100vh;
-}
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin-bottom: 5%;
-}
-
-    /* Hide default HTML checkbox */
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        margin-bottom: 5%;
-    }
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-
-}
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-.signupCheckedSlider:checked + .slider {
-    background-color: var(--mainGreen);
-}
-
-.signupCheckedSlider:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-.signupCheckedSlider:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-    .slider.round:before {
-        border-radius: 50%;
-    }
-
-.signUpForm label, .signInForm label {
-    display: block;
-    font-weight: bold;
-    margin: 5% 0 2% 0;
-    font-size: 1.5rem;
-}
-.signUpForm input, .signUpForm select, .signInForm input {
-    width: 97%;
-    padding: 2% 0 2% 2%;
+#registrerButton {
     border-radius: 5px;
-    border: 1px solid var(--darkGreen);
-    margin-bottom: 5%;
-    color:black;
-    font-size:1.2rem;
-}
-.signInForm input{
-    font-size:1.2rem;
-}
-
-    .signUpForm p {
-        margin-bottom: 2%;
-    }
-.signUpForm button, .signInForm .loginButton{
-    background-color: var(--mainGreen);
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.signUpForm .formSelect {
-    width: 100%;
-    background-color:white;
-}
-.signInForm {
-    margin-bottom: 10%;
-}
-.stepContainer{
-    display:inline-block;
-}
-.signUpSteps{
-    display:none;
-}
-.signUpForm .signupSubmit {
-    display: none;
-    grid-column: span 3;
-    pointer-events: none;
-    background-color: var(--mainGreen);
-    color: white;
-    padding:4%;
-    font-weight:bold;
-}
-.previousButton{
-    display:none;
-    transform:rotate(180deg);
-}
-.nextButton {
-    float:right;
-}
-.previousButton, .nextButton{
-    height:40px;
-    display:inline-block;
-}
-.signUpNav {
-    position: absolute;
-    bottom: -10%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
-}
-.arrowContainer {
-    min-width: 45px;
-}
-.signUpForm .signupNext {
-    grid-column: span 3;
+    width: auto;
+    padding: 3% 5%;
+    font-size: 1.3rem;
     background-color: var(--darkGreen);
-    margin-bottom: 5%;
+    color: white;
 }
 
-/* Make circles that indicate the steps of the form: */
-.step {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin: 0 2px;
-    background-color: var(--darkGreen);
-    border: none;
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.2;
-    align-items:center;
+#helpButton {
+    border-radius: 5px;
+    width: auto;
+    padding: 3% 5%;
+    font-size: 1.1rem;
+    background-color: var(--lightGrey);
+    font-weight: 700;
 }
 
-    .step.signupActive {
-        opacity: 1;
-    }
-.stepsContainer {
-    width: 100%;
-    height: 73vh;
-    overflow-y:scroll;
+/* login failure */
+
+
+.row{
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
 }
-    .stepsContainer::-webkit-scrollbar {
-        width: 0px;
-        background: transparent; /* make scrollbar transparent */
-    }
-    /* Mark the steps that are finished and valid: */
-    .step.finish {
-        background-color: #04AA6D;
-    }
-.stepDotsContainer {
+
+h1{
+    padding: 10% 0 2% 0;
+    color: var(--mainRed)
+}
+
+.col-sm-2{
+    padding: 2% 0;
+    font-weight: 700;
+    font-size: 1.5rem;
     text-align: center;
-    margin-top: 40px;
 }
-.greyArrow {
-    filter: grayscale(0.5);
+.col-sm-10 {
+    padding: 2% 0;
+    font-size: 1.1rem;
+    text-align: center;
 }
-.signUpStepThree .uploadImgShow {
-    width: 100%;
-}
-.signUpStepThree p{
-    font-size:1.5rem;
-    font-weight:600;
-}
-.profilePicUpload::-webkit-file-upload-button {
-    visibility: hidden;
-}
-#profilePicUpload {
-    opacity: 0;
-    width: 3rem;
-    height: 3rem;
-    position: relative;
-    margin-top:2rem;
-}
-.signupUploadIcon {
-    width: 3rem;
-    position: absolute;
-    margin-top: 2rem;
+
+.backToLogin {
+    padding: 10% 0;
+    font-size: 1.1rem;
+    text-align: center;
 }
