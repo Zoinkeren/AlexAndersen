@@ -11,22 +11,11 @@ namespace Alex_Andersen.Controllers
     public class LoginController : Controller
     {
 
-        private readonly MyDbContext _context;
-
-        public LoginController(MyDbContext context)
-        {
-            _context = context;
-
-        }
-
         public IActionResult Index()
         {
 
             return View();
         }
-
-
-
 
         public IActionResult ProcessLogin(User user)
         {
@@ -37,7 +26,7 @@ namespace Alex_Andersen.Controllers
 
             if(securityService.IsValid(user))
             {
-                return View("../home/index");
+                return View("../home/index", user);
             }
             else
             {
