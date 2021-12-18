@@ -34,6 +34,11 @@ namespace Alex_Andersen.Controllers
             }
 
         }
-    
+        public IActionResult SignUp()
+        {
+
+            return View();
+        }
+
     }
 }

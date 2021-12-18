@@ -21,6 +21,12 @@ body {
     --mainGreenShade: rgba(27,132,22,.2);
     --darkGreen: #005140;
 }
+.bigButton {
+    border-radius: 10px;
+    width: 100%;
+    padding: 4%;
+    border:none;
+}
 
 
 .wrapper {
@@ -29,10 +35,8 @@ body {
     padding: 2% 15% 2%;
 }
 
-form{
-}
 
-img {
+.logo {
     display: block;
     width: 50%;
     margin-right: auto;
@@ -55,13 +59,13 @@ img {
     align-self: flex-end;
 }
 
-label {
+.SingupForm label {
     font-weight: 900;
     padding: 1% 0;
     font-size: 1.3rem;
 }
 
-input{
+.SingupForm input {
     border-radius: 4px;
     padding: 2%;
     font-size: 1.2rem;
@@ -84,6 +88,7 @@ input{
     font-size: 1.3rem;
     background-color: var(--darkGreen);
     color: white;
+    text-decoration:none;
 }
 
 #helpButton {
@@ -93,6 +98,7 @@ input{
     font-size: 1.1rem;
     background-color: var(--lightGrey);
     font-weight: 700;
+
 }
 
 /* login failure */
@@ -125,4 +131,286 @@ h1{
     padding: 10% 0;
     font-size: 1.1rem;
     text-align: center;
+}
+
+
+/* Help button & popup*/
+
+.popUp {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+}
+
+.popUpBox {
+    width: 60%;
+    height: 10rem;
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    padding: 5% 10%;
+}
+
+    .popUpBox h4 {
+        margin-bottom: 5%;
+    }
+
+.helpNo {
+    display: inline-block;
+    color: var(--mainGreen);
+    border-bottom: 1px solid var(--mainGreen);
+}
+
+.popUpBox button {
+    padding: 5%;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--mainGreen);
+    float: right;
+    margin-top: 5%;
+    border-radius: 5px;
+}
+
+
+/* signup */
+
+.signUpForm {
+    height: 100vh;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 5%;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin-bottom: 5%;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+.signupCheckedSlider:checked + .slider {
+    background-color: var(--mainGreen);
+}
+
+.signupCheckedSlider:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.signupCheckedSlider:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.signUpForm label, .signInForm label {
+    display: block;
+    font-weight: bold;
+    margin: 5% 0 2% 0;
+    font-size: 1.5rem;
+}
+
+.signUpForm input, .signUpForm select, .signInForm input {
+    width: 97%;
+    padding: 2% 0 2% 2%;
+    border-radius: 5px;
+    border: 1px solid var(--darkGreen);
+    margin-bottom: 5%;
+    color: black;
+    font-size: 1.2rem;
+    background-color:white;
+}
+
+.signInForm input {
+    font-size: 1.2rem;
+}
+
+.signUpForm p {
+    margin-bottom: 2%;
+}
+
+.signUpForm button, .signInForm .loginButton {
+    background-color: var(--mainGreen);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.signUpForm .formSelect {
+    width: 100%;
+    background-color: white;
+}
+
+.signInForm {
+    margin-bottom: 10%;
+}
+
+.stepContainer {
+    display: inline-block;
+}
+
+.signUpSteps {
+    display: none;
+}
+
+.signUpForm .signupSubmit {
+    display: none;
+    grid-column: span 3;
+    pointer-events: none;
+    background-color: var(--mainGreen);
+    color: white;
+    padding: 4%;
+    font-weight: bold;
+}
+
+.previousButton {
+    display: none;
+    transform: rotate(180deg);
+}
+
+.nextButton {
+    float: right;
+}
+
+.previousButton, .nextButton {
+    height: 40px;
+    display: inline-block;
+}
+
+.signUpNav {
+    position: absolute;
+    bottom: -10%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.arrowContainer {
+    min-width: 45px;
+}
+
+.signUpForm .signupNext {
+    grid-column: span 3;
+    background-color: var(--darkGreen);
+    margin-bottom: 5%;
+    padding:;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 2px;
+    background-color: var(--darkGreen);
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.2;
+    align-items: center;
+}
+
+    .step.signupActive {
+        opacity: 1;
+    }
+
+.stepsContainer {
+    width: 100%;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+    .stepsContainer::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #04AA6D;
+}
+
+.stepDotsContainer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.greyArrow {
+    filter: grayscale(0.5);
+}
+
+.signUpStepThree .uploadImgShow {
+    width: 100%;
+}
+
+.signUpStepThree p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.profilePicUpload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+#profilePicUpload {
+    opacity: 0;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.signupUploadIcon {
+    width: 3rem;
+    position: absolute;
 }
