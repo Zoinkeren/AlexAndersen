@@ -7,8 +7,8 @@
     ViewData["Title"] = "Login";
 }
 
-<img src="/icons/alexandersenLogo.png" alt="Alex Andersen Logo" />
-<form asp-action="ProcessLogin">
+<img class="logo" src="/icons/alexandersenLogo.png" alt="Alex Andersen Logo" />
+<form class="SingupForm" asp-action="ProcessLogin">
     <div asp-validation-summary="ModelOnly"></div>
 
     <div class="form-group">
@@ -25,9 +25,30 @@
         <input id="Button" type="submit" value="Log ind" />
     </div>
 
-    <div class="form-group-row">
-        <input id="registrerButton" type="submit" value="Ny bruger" />
-        <input id="helpButton" type="submit" value="Hjælp" />
-    </div>
+    
 </form>
 
+<div class="form-group-row">
+    <a href="login/SignUp" id="registrerButton" >Ny bruger</a>
+    <input id="helpButton" type="submit" value="Hjælp" />
+</div>
+
+<div class="popUp helpPopUp">
+    <div class="popUpBox">
+        <h4>Få hjælp til login</h4>
+        <p>Ring til telefon nr.:</p>
+        <p class="helpNo">+45 12 13 14 15</p>
+        <button class="popUpClose">OK</button>
+    </div>
+</div>
+
+<script>
+    document.querySelector("#helpButton").addEventListener("click", function () {
+        document.querySelector(".popUp").style.display = "block";
+    });
+
+    document.querySelector(".popUpClose").addEventListener("click", function () {
+        document.querySelector(".popUp").style.display = "none";
+    });
+
+</script>
