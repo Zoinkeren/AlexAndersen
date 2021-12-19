@@ -2,8 +2,45 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int eventCount = ViewBag.Events.Count;
+
+    List<Availability> eventData = new List<Availability>();
+
+
+    foreach (var data in ViewBag.Events) {
+        Availability thisEvent = new Availability();
+
+        thisEvent.AvailabilityId = data.AvailabilityId;
+        thisEvent.StartDate = data.StartDate;
+        thisEvent.EndDate = data.EndDate;
+        thisEvent.AvailabilityStatus = data.AvailabilityStatus;
+        /* thisEvent.fullDay = data.fullDay; */
+
+        eventData.Add(thisEvent);
+    }
 }
-<script>
+<script type="text/javascript">
+    /* 
+    //create list of objects
+    let eventCount = '(AT-SIGN)eventCount';
+    let userEvents = [];
+
+    for (let i = 0; eventCount > i; i++) {
+        let eventdata = {
+            start: '2021-02-02',
+            end: '2021-02-03',
+            allDay: 'true',
+            display: 'background',
+            classNames: ['unavailable'],
+            extendedProps: {
+                fullday: true,
+                timeStart: 'hello',
+                timeEnd: 'hello'
+            }
+        };
+        userEvents.push(eventdata);
+    }*/
+
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             //var popupText = document.getElementById("dateSelected");
@@ -26,6 +63,7 @@
                 eventTextColor: 'white',
 
                 events: [
+                    
                     {
                         start: '2021-12-10',
                         end: '2021-12-15',
