@@ -201,6 +201,8 @@ header {
     display: inline-block;
     width: 60px;
     height: 34px;
+    padding: 0;
+    margin-top: 5px;
 }
 
 /* Hide default HTML checkbox */
@@ -258,9 +260,10 @@ header {
 
 #calendar-wrapper .popup input[type=date],
 #calendar-wrapper .popup input[type=datetime-local] {
-    width:300px;
-    max-width:100%;
+    width: 300px;
+    max-width: 100%;
     box-sizing: border-box;
+    margin-bottom: 2px;
 }
 
 #calendar-wrapper .popup input[type=radio] {

@@ -18,12 +18,13 @@
 }
 /*Location grid*/
 .Profile-Grid-container {
-display: grid;
-grid-template-columns: 1fr 1fr;
-padding: 1em;
-width: 70vw;
-margin: auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 1em;
+    width: 80vw;
+    margin: auto;
 }
+
 .Profile-Grid-item {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -37,10 +38,7 @@ margin: auto;
     align-items: center;
 
 }
-.preference {
-    justify-self: end;
 
-}
 .LocationIcon {
 width: 18px;
 height: 18px;
@@ -72,10 +70,14 @@ height: 18px;
     margin-left: 2px;
     margin-right: 10px;
 }
-.ProfileIcon{
+.ProfileIcon {
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
 }
+
+
 /* Settings Icon*/
 .SettingsIcon {
     margin-top: -30vh;
