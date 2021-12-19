@@ -12,9 +12,11 @@ namespace Alex_Andersen.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MyDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -29,7 +31,9 @@ namespace Alex_Andersen.Controllers
         }
 
         public IActionResult Availability()
-        {
+        { 
+            var Availabilities = _context.Availabilities.ToList();
+            ViewBag.Events = Availabilities;
             return View();
         }
 

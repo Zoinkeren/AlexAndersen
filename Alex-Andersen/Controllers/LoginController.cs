@@ -11,6 +11,12 @@ namespace Alex_Andersen.Controllers
     public class LoginController : Controller
     {
 
+        private readonly MyDbContext _context;
+
+        public LoginController(MyDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
 

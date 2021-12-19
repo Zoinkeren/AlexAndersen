@@ -2,4 +2,351 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int eventCount = ViewBag.Events.Count;
+
+    List<Availability> eventData = new List<Availability>();
+
+
+    foreach (var data in ViewBag.Events) {
+        Availability thisEvent = new Availability();
+
+        thisEvent.AvailabilityId = data.AvailabilityId;
+        thisEvent.StartDate = data.StartDate;
+        thisEvent.EndDate = data.EndDate;
+        thisEvent.AvailabilityStatus = data.AvailabilityStatus;
+        /* thisEvent.fullDay = data.fullDay; */
+
+        eventData.Add(thisEvent);
+    }
 }
+<script type="text/javascript">
+    /* 
+    //create list of objects
+    let eventCount = '(AT-SIGN)eventCount';
+    let userEvents = [];
+
+    for (let i = 0; eventCount > i; i++) {
+        let eventdata = {
+            start: '2021-02-02',
+            end: '2021-02-03',
+            allDay: 'true',
+            display: 'background',
+            classNames: ['unavailable'],
+            extendedProps: {
+                fullday: true,
+                timeStart: 'hello',
+                timeEnd: 'hello'
+            }
+        };
+        userEvents.push(eventdata);
+    }*/
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            //var popupText = document.getElementById("dateSelected");
+            var popup_add = document.getElementById("add-availability");
+            var popup_edit = document.getElementById("edit-availability");
+            var blackBG = document.getElementById("blackBG");
+            var switchAdd = document.getElementById("switch-for-add");
+            var switchEdit = document.getElementById("switch-for-edit");
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                firstDay: 1,
+                selectable: true,
+                //businessHours: true,
+                //nextDayThreshold:"00:00:00",
+                locale: 'DK',
+                longPressDelay: 1,
+                nextDayThreshold: '00:00:00',
+                dayMaxEvents: true, // allow "more" link when too many events
+                eventTextColor: 'white',
+
+                events: [
+                    
+                    {
+                        start: '2021-12-10',
+                        end: '2021-12-15',
+                        classNames: ['available'],
+                        display: 'background',
+                        extendedProps: {
+                            fullday: false,
+                            timeStart: '11:00:00',
+                            timeEnd: '15:00:00'
+                        },
+                        allDay: true
+                        // allDay set to true to show background-events on calendar in month gridview. Stupid.
+                        // Because of that, have to save timeslots in extendedprops
+                    },
+                    {
+                        start: '2021-12-19',
+                        end: '2021-12-21',
+                        display: 'background',
+                        classNames: ['unavailable'],
+                        extendedProps: {fullday: true},
+                        allDay: true
+                    }
+                ],
+                select: function (info) {
+                    allEvents = calendar.getEvents();
+      
+                    let thisStart = Date.parse(info.start);
+                    let thisEnd = Date.parse(info.end);
+                    let eventStart = 0;
+                    let eventEnd = 0;
+                    let eventFound = -1;
+
+                    for (let i = 0; allEvents.length > i; i++) {
+                        eventStart = Date.parse(allEvents[i].startStr);
+                        eventEnd = Date.parse(allEvents[i].endStr);
+
+                        if (thisStart >= eventStart && thisStart < eventEnd) {
+                            eventFound = i;
+                        } else if (thisEnd >= eventStart && thisEnd < eventEnd) {
+                            eventFound = i;
+                        }
+                    }
+                    console.log(eventFound);
+
+                    if (eventFound >= 0) {
+                        FillEditPopup(eventFound);
+                    } else {
+                        FillAddPopup(info.startStr, info.endStr);
+                    }
+
+                }, //select function end
+
+                dateClick: function (info) { 
+                    allEvents = calendar.getEvents();
+
+                    let thisDate = Date.parse(info.dateStr);
+                    let eventStart = 0;
+                    let eventEnd = 0;
+                    let eventFound = -1;
+
+                    for (let i = 0; allEvents.length > i; i++) {
+                        eventStart = Date.parse(allEvents[i].startStr);
+                        eventEnd = Date.parse(allEvents[i].endStr);
+                        //Check if the date clicked is belong to any event. If yes, save the specific event found
+                        if (thisDate >= eventStart && thisDate < eventEnd) {
+                            eventFound = i;
+                        }
+                    }
+
+                    if (eventFound >= 0) {
+                        FillEditPopup(eventFound);
+                    } else {
+                        FillAddPopup(info.dateStr);
+                    }
+                } //dateClick function end
+
+
+            });
+
+            //Cancel/Delete/Save button-clicks in popups
+            //ADD popup
+            document.getElementById("cancel-add").addEventListener("click", function () {
+                popup_add.style.display = "none";
+                blackBG.style.display = "none";
+            });
+            document.getElementById("save-add").addEventListener("click", function () {
+                popup_add.style.display = "none";
+                blackBG.style.display = "none";
+            });
+            //EDIT popup
+            document.getElementById("cancel-edit").addEventListener("click", function () {
+                popup_edit.style.display = "none";
+                blackBG.style.display = "none";
+            });
+            document.getElementById("delete-edit").addEventListener("click", function () {
+                popup_edit.style.display = "none";
+                blackBG.style.display = "none";
+            });
+            document.getElementById("save-edit").addEventListener("click", function () {
+                popup_edit.style.display = "none";
+                blackBG.style.display = "none";
+            });
+
+
+            // Change input fields when switch turn on/off for the ADD popup
+            switchAdd.addEventListener('change', (e) => {
+                if (e.currentTarget.checked) {
+                    document.getElementById('day-timeslots').style.display = 'none';
+                    document.getElementById('whole-day').style.display = 'block';
+                } else {
+                    document.getElementById('whole-day').style.display = 'none';
+                    document.getElementById('day-timeslots').style.display = 'block';
+                }
+            });
+
+            // Change input fields when switch turn on/off for the EDIT popup
+            switchEdit.addEventListener('change', (e) => {
+                if (e.currentTarget.checked) {
+                    document.getElementById('day-timeslots-edit').style.display = 'none';
+                    document.getElementById('whole-day-edit').style.display = 'block';
+                } else {
+                    document.getElementById('whole-day-edit').style.display = 'none';
+                    document.getElementById('day-timeslots-edit').style.display = 'block';
+                }
+            });
+
+            function FillEditPopup(eventID) {
+                thisEvent = calendar.getEvents()[eventID];
+                let startTime = '00:00';
+                let endTime = '00:00';
+
+                //if event has timeslots, load them
+                if (thisEvent.extendedProps.fullday == false) {
+                    startTime = thisEvent.extendedProps.timeStart;
+                    endTime = thisEvent.extendedProps.timeEnd;
+                }
+
+                //fill the input fields
+
+                document.getElementById("date-start-edit").setAttribute("value", thisEvent.startStr + 'T' + startTime);
+                document.getElementById("date-end-edit").setAttribute("value", thisEvent.endStr + 'T' + endTime);
+
+                document.getElementById("date-start-edit-whole").setAttribute("value", thisEvent.startStr);
+                document.getElementById("date-end-edit-whole").setAttribute("value", thisEvent.endStr);
+
+                //set switch to correct setting
+                if (thisEvent.classNames.includes("available")) {
+                    document.getElementById("edit-available").checked = true;
+                } else {
+                    document.getElementById("edit-unavailable").checked = true;
+                }
+
+                //show the edit popup
+                popup_edit.style.display = "block";
+                popup_add.style.display = "none";
+                blackBG.style.display = "block";
+                
+            }
+            function FillAddPopup(startDate, endDate = 0) {
+                document.getElementById("date-start").setAttribute("value", startDate + "T08:00:00");
+                document.getElementById("date-start-whole").setAttribute("value", startDate);
+                if (endDate) {
+                    document.getElementById("date-end").setAttribute("value", endDate + "T16:00:00");
+                    document.getElementById("date-end-whole").setAttribute("value", endDate);
+                } else {
+                    document.getElementById("date-end").setAttribute("value", startDate + "T16:00:00");
+                    document.getElementById("date-end-whole").setAttribute("value", startDate);
+                }
+
+                //Show the add popup
+                popup_add.style.display = "block";
+                popup_edit.style.display = "none";
+                blackBG.style.display = "block";
+            }
+
+            calendar.render();
+        });
+</script>
+<div id="calendar-wrapper">
+    <div id="blackBG">
+        <div id="add-availability" class="roundedBox popup">
+            <form>
+                <!--ADD AN EVENT -->
+                <h3>Sæt rådighed</h3>
+
+                <div class="radio-group">
+                    <label for="pick-available">
+                        <input type="radio" id="pick-available" name="availability" />
+                        Available
+                    </label>
+                    <br />
+                    <label for="pick-unavailable">
+                        <input type="radio" id="pick-unavailable" name="availability" />
+                        Unavailable
+                    </label>
+                </div>
+
+                <div class="timeslots">
+                    <label for="switch-for-add">Hele dage</label>
+                    <label class="switch">
+                        <input type="checkbox" name="switch-for-add" checked="checked" id="switch-for-add" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div id="whole-day">
+                    <label for="date-start-whole">Fra</label>
+                    <input type="date" id="date-start-whole" name="date-start-whole" /><br />
+
+                    <label for="date-end-whole">Til</label>
+                    <input type="date" id="date-end-whole" name="date-end-whole" />
+                </div>
+
+                <div id="day-timeslots">
+                    <label for="date-start">Fra</label>
+                    <input type="datetime-local" id="date-start" name="date-start" /><br />
+
+                    <label for="date-end">Til</label>
+                    <input type="datetime-local" id="date-end" name="date-end" />
+                </div>
+                <div class="button-group">
+                    <button id="cancel-add" class="cancel">Annuller</button>
+                    <button id="save-add" class="save">Tilføj</button>
+                </div>
+            </form>
+        </div>
+        <div id="edit-availability" class="roundedBox popup">
+            <form>
+                <!--EDIT AN EVENT -->
+                <h3>Rediger periode</h3>
+
+                <input type="text" id="id-edit-event" name="id-edit-event" />
+
+                <div class="radio-group">
+                    <label for="edit-available">
+                        <input type="radio" id="edit-available" name="availability-edit" />
+                        Available
+                    </label>
+                    <br />
+                    <label for="edit-unavailable">
+                        <input type="radio" id="edit-unavailable" name="availability-edit" />
+                        Unavailable
+                    </label>
+                </div>
+
+                <div class="timeslots">
+                    <label for="switch-for-edit">Hele dage</label>
+                    <label class="switch">
+                        <input type="checkbox" name="switch-for-edit" checked="checked" id="switch-for-edit" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div id="whole-day-edit">
+                    <label for="date-start-edit-whole">Fra</label>
+                    <input type="date" id="date-start-edit-whole" name="date-start-edit-whole" /><br />
+
+                    <label for="date-end-edit-whole">Til</label>
+                    <input type="date" id="date-end-edit-whole" name="date-end-edit-whole" />
+                </div>
+                <div id="day-timeslots-edit">
+                    <label for="date-start-edit">Fra</label>
+                    <input type="datetime-local" id="date-start-edit" name="date-start-edit" /><br />
+
+                    <label for="date-end-edit">Til</label>
+                    <input type="datetime-local" id="date-end-edit" name="date-end-edit" />
+                </div>
+
+                <div class="button-group">
+                    <button id="cancel-edit" class="cancel">Annuller</button>
+                    <button id="delete-edit" class="delete">Slet</button>
+                    <button id="save-edit" class="save">Gem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id='calendar'></div>
+    <div class="calendar-tooltip">
+        <div class="available">
+            Available
+        </div>
+        <div class="unavailable">
+            Unavailable
+        </div>
+    </div>
+</div>
